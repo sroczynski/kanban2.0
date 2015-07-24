@@ -1,0 +1,9 @@
+C:\workspace\Kanban_Atual\kanbanqfunciona\Data\bin\Debug\Data.dll
+C:\workspace\Kanban_Atual\kanbanqfunciona\Data\bin\Debug\Data.pdb
+C:\workspace\Kanban_Atual\kanbanqfunciona\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+C:\workspace\Kanban_Atual\kanbanqfunciona\Data\obj\Debug\Data.dll
+C:\workspace\Kanban_Atual\kanbanqfunciona\Data\obj\Debug\Data.pdb
+C:\workspace\ProjetoKanban\Data\bin\Debug\Data.dll
+C:\workspace\ProjetoKanban\Data\bin\Debug\Data.pdb
+C:\workspace\ProjetoKanban\Data\obj\Debug\Data.dll
+C:\workspace\ProjetoKanban\Data\obj\Debug\Data.pdb

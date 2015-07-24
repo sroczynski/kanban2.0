@@ -1,0 +1,856 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KANBANModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="KANBANModelStoreContainer">
+    <EntitySet Name="avatar" EntityType="KANBANModel.Store.avatar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="classificacao" EntityType="KANBANModel.Store.classificacao" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="fases" EntityType="KANBANModel.Store.fases" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="grupo_usuario_x_permissao" EntityType="KANBANModel.Store.grupo_usuario_x_permissao" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="grupo_usuarios" EntityType="KANBANModel.Store.grupo_usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="grupo_usuarios_x_fases" EntityType="KANBANModel.Store.grupo_usuarios_x_fases" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="permissao" EntityType="KANBANModel.Store.permissao" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="projeto" EntityType="KANBANModel.Store.projeto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="projeto_x_usuario" EntityType="KANBANModel.Store.projeto_x_usuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sprints" EntityType="KANBANModel.Store.sprints" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="status" EntityType="KANBANModel.Store.status" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tarefa_x_comentario" EntityType="KANBANModel.Store.tarefa_x_comentario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tarefa_x_usuario" EntityType="KANBANModel.Store.tarefa_x_usuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tarefas" EntityType="KANBANModel.Store.tarefas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tipo" EntityType="KANBANModel.Store.tipo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuario" EntityType="KANBANModel.Store.usuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuario_x_grupos_usuario" EntityType="KANBANModel.Store.usuario_x_grupos_usuario" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__usuario__id_avat__02FC7413" Association="KANBANModel.Store.FK__usuario__id_avat__02FC7413">
+      <End Role="avatar" EntitySet="avatar" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuario__id_avat__68487DD7" Association="KANBANModel.Store.FK__usuario__id_avat__68487DD7">
+      <End Role="avatar" EntitySet="avatar" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_clas__00200768" Association="KANBANModel.Store.FK__tarefas__id_clas__00200768">
+      <End Role="classificacao" EntitySet="classificacao" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_clas__656C112C" Association="KANBANModel.Store.FK__tarefas__id_clas__656C112C">
+      <End Role="classificacao" EntitySet="classificacao" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__grupo_usu__id_fa__10566F31" Association="KANBANModel.Store.FK__grupo_usu__id_fa__10566F31">
+      <End Role="fases" EntitySet="fases" />
+      <End Role="grupo_usuarios_x_fases" EntitySet="grupo_usuarios_x_fases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__grupo_usu__id_gr__05D8E0BE" Association="KANBANModel.Store.FK__grupo_usu__id_gr__05D8E0BE">
+      <End Role="grupo_usuarios" EntitySet="grupo_usuarios" />
+      <End Role="grupo_usuario_x_permissao" EntitySet="grupo_usuario_x_permissao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__grupo_usu__id_gr__6B24EA82" Association="KANBANModel.Store.FK__grupo_usu__id_gr__6B24EA82">
+      <End Role="grupo_usuarios" EntitySet="grupo_usuarios" />
+      <End Role="grupo_usuario_x_permissao" EntitySet="grupo_usuario_x_permissao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__grupo_usu__id_pe__04E4BC85" Association="KANBANModel.Store.FK__grupo_usu__id_pe__04E4BC85">
+      <End Role="permissao" EntitySet="permissao" />
+      <End Role="grupo_usuario_x_permissao" EntitySet="grupo_usuario_x_permissao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__grupo_usu__id_pe__6A30C649" Association="KANBANModel.Store.FK__grupo_usu__id_pe__6A30C649">
+      <End Role="permissao" EntitySet="permissao" />
+      <End Role="grupo_usuario_x_permissao" EntitySet="grupo_usuario_x_permissao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__grupo_usu__id_gr__0F624AF8" Association="KANBANModel.Store.FK__grupo_usu__id_gr__0F624AF8">
+      <End Role="grupo_usuarios" EntitySet="grupo_usuarios" />
+      <End Role="grupo_usuarios_x_fases" EntitySet="grupo_usuarios_x_fases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__grupo_usu__id_us__03F0984C" Association="KANBANModel.Store.FK__grupo_usu__id_us__03F0984C">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="grupo_usuarios" EntitySet="grupo_usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__grupo_usu__id_us__693CA210" Association="KANBANModel.Store.FK__grupo_usu__id_us__693CA210">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="grupo_usuarios" EntitySet="grupo_usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefa_x___id_gr__0C85DE4D" Association="KANBANModel.Store.FK__tarefa_x___id_gr__0C85DE4D">
+      <End Role="grupo_usuarios" EntitySet="grupo_usuarios" />
+      <End Role="tarefa_x_usuario" EntitySet="tarefa_x_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuario_x__id_gr__0D7A0286" Association="KANBANModel.Store.FK__usuario_x__id_gr__0D7A0286">
+      <End Role="grupo_usuarios" EntitySet="grupo_usuarios" />
+      <End Role="usuario_x_grupos_usuario" EntitySet="usuario_x_grupos_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_grup__628FA481" Association="KANBANModel.Store.FK__tarefas__id_grup__628FA481">
+      <End Role="grupo_usuarios_x_fases" EntitySet="grupo_usuarios_x_fases" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_grup__7D439ABD" Association="KANBANModel.Store.FK__tarefas__id_grup__7D439ABD">
+      <End Role="grupo_usuarios_x_fases" EntitySet="grupo_usuarios_x_fases" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__projeto_x__id_pr__06CD04F7" Association="KANBANModel.Store.FK__projeto_x__id_pr__06CD04F7">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="projeto_x_usuario" EntitySet="projeto_x_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__projeto_x__id_pr__6C190EBB" Association="KANBANModel.Store.FK__projeto_x__id_pr__6C190EBB">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="projeto_x_usuario" EntitySet="projeto_x_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_proj__60A75C0F" Association="KANBANModel.Store.FK__tarefas__id_proj__60A75C0F">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_proj__7B5B524B" Association="KANBANModel.Store.FK__tarefas__id_proj__7B5B524B">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__projeto_x__id_us__07C12930" Association="KANBANModel.Store.FK__projeto_x__id_us__07C12930">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="projeto_x_usuario" EntitySet="projeto_x_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__projeto_x__id_us__6D0D32F4" Association="KANBANModel.Store.FK__projeto_x__id_us__6D0D32F4">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="projeto_x_usuario" EntitySet="projeto_x_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sprints__id_spri__5EBF139D" Association="KANBANModel.Store.FK__sprints__id_spri__5EBF139D">
+      <End Role="sprints" EntitySet="sprints" />
+      <End Role="sprints1" EntitySet="sprints" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sprints__id_spri__797309D9" Association="KANBANModel.Store.FK__sprints__id_spri__797309D9">
+      <End Role="sprints" EntitySet="sprints" />
+      <End Role="sprints1" EntitySet="sprints" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_spri__5FB337D6" Association="KANBANModel.Store.FK__tarefas__id_spri__5FB337D6">
+      <End Role="sprints" EntitySet="sprints" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_spri__7A672E12" Association="KANBANModel.Store.FK__tarefas__id_spri__7A672E12">
+      <End Role="sprints" EntitySet="sprints" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_stat__619B8048" Association="KANBANModel.Store.FK__tarefas__id_stat__619B8048">
+      <End Role="status" EntitySet="status" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_stat__7C4F7684" Association="KANBANModel.Store.FK__tarefas__id_stat__7C4F7684">
+      <End Role="status" EntitySet="status" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefa_x___id_ta__08B54D69" Association="KANBANModel.Store.FK__tarefa_x___id_ta__08B54D69">
+      <End Role="tarefas" EntitySet="tarefas" />
+      <End Role="tarefa_x_comentario" EntitySet="tarefa_x_comentario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefa_x___id_ta__6E01572D" Association="KANBANModel.Store.FK__tarefa_x___id_ta__6E01572D">
+      <End Role="tarefas" EntitySet="tarefas" />
+      <End Role="tarefa_x_comentario" EntitySet="tarefa_x_comentario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefa_x___id_ta__0A9D95DB" Association="KANBANModel.Store.FK__tarefa_x___id_ta__0A9D95DB">
+      <End Role="tarefas" EntitySet="tarefas" />
+      <End Role="tarefa_x_usuario" EntitySet="tarefa_x_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefa_x___id_us__09A971A2" Association="KANBANModel.Store.FK__tarefa_x___id_us__09A971A2">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="tarefa_x_usuario" EntitySet="tarefa_x_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefa_x___id_us__0B91BA14" Association="KANBANModel.Store.FK__tarefa_x___id_us__0B91BA14">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="tarefa_x_usuario" EntitySet="tarefa_x_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_tare__01142BA1" Association="KANBANModel.Store.FK__tarefas__id_tare__01142BA1">
+      <End Role="tarefas" EntitySet="tarefas" />
+      <End Role="tarefas1" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_tare__02084FDA" Association="KANBANModel.Store.FK__tarefas__id_tare__02084FDA">
+      <End Role="tarefas" EntitySet="tarefas" />
+      <End Role="tarefas1" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_tare__66603565" Association="KANBANModel.Store.FK__tarefas__id_tare__66603565">
+      <End Role="tarefas" EntitySet="tarefas" />
+      <End Role="tarefas1" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_tare__6754599E" Association="KANBANModel.Store.FK__tarefas__id_tare__6754599E">
+      <End Role="tarefas" EntitySet="tarefas" />
+      <End Role="tarefas1" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_tipo__6477ECF3" Association="KANBANModel.Store.FK__tarefas__id_tipo__6477ECF3">
+      <End Role="tipo" EntitySet="tipo" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_tipo__7F2BE32F" Association="KANBANModel.Store.FK__tarefas__id_tipo__7F2BE32F">
+      <End Role="tipo" EntitySet="tipo" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_usua__6383C8BA" Association="KANBANModel.Store.FK__tarefas__id_usua__6383C8BA">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tarefas__id_usua__7E37BEF6" Association="KANBANModel.Store.FK__tarefas__id_usua__7E37BEF6">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuario_x__id_us__0E6E26BF" Association="KANBANModel.Store.FK__usuario_x__id_us__0E6E26BF">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="usuario_x_grupos_usuario" EntitySet="usuario_x_grupos_usuario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="avatar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="path_avatar" Type="varchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="classificacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descricao" Type="varchar" Nullable="false" MaxLength="80" />
+    <Property Name="ativo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="fases">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descricao" Type="varchar" Nullable="false" MaxLength="80" />
+    <Property Name="ativo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="grupo_usuario_x_permissao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_permissao" Type="int" Nullable="true" />
+    <Property Name="id_grupo_usuario" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="grupo_usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descricao" Type="varchar" Nullable="false" MaxLength="80" />
+    <Property Name="cor_grupo" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="id_usuario_lider" Type="int" Nullable="false" />
+    <Property Name="ativo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="grupo_usuarios_x_fases">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_grupo_usuarios" Type="int" Nullable="false" />
+    <Property Name="id_fases" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="permissao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="projeto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descricao" Type="varchar" Nullable="true" MaxLength="500" />
+    <Property Name="titulo" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="projeto_x_usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_projeto" Type="int" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sprints">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_sprints_dependencia" Type="int" Nullable="true" />
+    <Property Name="descricao" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="dt_inicio" Type="datetime" Nullable="true" />
+    <Property Name="dt_fim" Type="datetime" Nullable="true" />
+    <Property Name="ativo" Type="bit" Nullable="true" />
+    <Property Name="dt_finalizacao" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descricao" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tarefa_x_comentario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tarefas" Type="int" Nullable="false" />
+    <Property Name="dt_comentário" Type="datetime" Nullable="true" />
+    <Property Name="descricao" Type="varchar" Nullable="true" MaxLength="500" />
+    <Property Name="anexo" Type="varchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tarefa_x_usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="true" />
+    <Property Name="id_tarefas" Type="int" Nullable="true" />
+    <Property Name="ativo" Type="bit" Nullable="true" />
+    <Property Name="id_usuario_proximo" Type="int" Nullable="true" />
+    <Property Name="dt_criacao" Type="datetime" Nullable="true" />
+    <Property Name="id_grupo_usuarios_proximo" Type="int" Nullable="true" />
+    <Property Name="indice" Type="int" Nullable="true" />
+    <Property Name="dt_inicio_tarefa" Type="datetime" Nullable="true" />
+    <Property Name="dt_fim_tarefa" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="tarefas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_sprints" Type="int" Nullable="true" />
+    <Property Name="id_projeto" Type="int" Nullable="false" />
+    <Property Name="descricao" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="id_status" Type="int" Nullable="true" />
+    <Property Name="id_grupo_usuarios_x_fases" Type="int" Nullable="true" />
+    <Property Name="indice" Type="int" Nullable="false" />
+    <Property Name="id_usuario_creator" Type="int" Nullable="false" />
+    <Property Name="tempo_estimado" Type="time" Nullable="true" Precision="7" />
+    <Property Name="tempo_trabalhado" Type="time" Nullable="true" Precision="7" />
+    <Property Name="id_tipo" Type="int" Nullable="false" />
+    <Property Name="id_classificacao" Type="int" Nullable="true" />
+    <Property Name="tarefa_planejada" Type="bit" Nullable="true" />
+    <Property Name="id_tarefa_dependencia" Type="int" Nullable="true" />
+    <Property Name="dt_criacao" Type="datetime" Nullable="false" />
+    <Property Name="id_tarefa_agrupador" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="tipo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descricao" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_avatar" Type="int" Nullable="true" />
+    <Property Name="nome_usuario" Type="varchar" Nullable="false" MaxLength="80" />
+    <Property Name="login" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="senha" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="usuario_x_grupos_usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_grupos_usuario" Type="int" Nullable="true" />
+    <Property Name="id_usuario" Type="int" Nullable="true" />
+  </EntityType>
+  <Association Name="FK__usuario__id_avat__02FC7413">
+    <End Role="avatar" Type="KANBANModel.Store.avatar" Multiplicity="0..1" />
+    <End Role="usuario" Type="KANBANModel.Store.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="avatar">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="id_avatar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuario__id_avat__68487DD7">
+    <End Role="avatar" Type="KANBANModel.Store.avatar" Multiplicity="0..1" />
+    <End Role="usuario" Type="KANBANModel.Store.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="avatar">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="id_avatar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_clas__00200768">
+    <End Role="classificacao" Type="KANBANModel.Store.classificacao" Multiplicity="0..1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="classificacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_classificacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_clas__656C112C">
+    <End Role="classificacao" Type="KANBANModel.Store.classificacao" Multiplicity="0..1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="classificacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_classificacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__grupo_usu__id_fa__10566F31">
+    <End Role="fases" Type="KANBANModel.Store.fases" Multiplicity="1" />
+    <End Role="grupo_usuarios_x_fases" Type="KANBANModel.Store.grupo_usuarios_x_fases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fases">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="grupo_usuarios_x_fases">
+        <PropertyRef Name="id_fases" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__grupo_usu__id_gr__05D8E0BE">
+    <End Role="grupo_usuarios" Type="KANBANModel.Store.grupo_usuarios" Multiplicity="0..1" />
+    <End Role="grupo_usuario_x_permissao" Type="KANBANModel.Store.grupo_usuario_x_permissao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="grupo_usuario_x_permissao">
+        <PropertyRef Name="id_grupo_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__grupo_usu__id_gr__6B24EA82">
+    <End Role="grupo_usuarios" Type="KANBANModel.Store.grupo_usuarios" Multiplicity="0..1" />
+    <End Role="grupo_usuario_x_permissao" Type="KANBANModel.Store.grupo_usuario_x_permissao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="grupo_usuario_x_permissao">
+        <PropertyRef Name="id_grupo_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__grupo_usu__id_pe__04E4BC85">
+    <End Role="permissao" Type="KANBANModel.Store.permissao" Multiplicity="0..1" />
+    <End Role="grupo_usuario_x_permissao" Type="KANBANModel.Store.grupo_usuario_x_permissao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="permissao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="grupo_usuario_x_permissao">
+        <PropertyRef Name="id_permissao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__grupo_usu__id_pe__6A30C649">
+    <End Role="permissao" Type="KANBANModel.Store.permissao" Multiplicity="0..1" />
+    <End Role="grupo_usuario_x_permissao" Type="KANBANModel.Store.grupo_usuario_x_permissao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="permissao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="grupo_usuario_x_permissao">
+        <PropertyRef Name="id_permissao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__grupo_usu__id_gr__0F624AF8">
+    <End Role="grupo_usuarios" Type="KANBANModel.Store.grupo_usuarios" Multiplicity="1" />
+    <End Role="grupo_usuarios_x_fases" Type="KANBANModel.Store.grupo_usuarios_x_fases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="grupo_usuarios_x_fases">
+        <PropertyRef Name="id_grupo_usuarios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__grupo_usu__id_us__03F0984C">
+    <End Role="usuario" Type="KANBANModel.Store.usuario" Multiplicity="1" />
+    <End Role="grupo_usuarios" Type="KANBANModel.Store.grupo_usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="grupo_usuarios">
+        <PropertyRef Name="id_usuario_lider" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__grupo_usu__id_us__693CA210">
+    <End Role="usuario" Type="KANBANModel.Store.usuario" Multiplicity="1" />
+    <End Role="grupo_usuarios" Type="KANBANModel.Store.grupo_usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="grupo_usuarios">
+        <PropertyRef Name="id_usuario_lider" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefa_x___id_gr__0C85DE4D">
+    <End Role="grupo_usuarios" Type="KANBANModel.Store.grupo_usuarios" Multiplicity="0..1" />
+    <End Role="tarefa_x_usuario" Type="KANBANModel.Store.tarefa_x_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefa_x_usuario">
+        <PropertyRef Name="id_grupo_usuarios_proximo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuario_x__id_gr__0D7A0286">
+    <End Role="grupo_usuarios" Type="KANBANModel.Store.grupo_usuarios" Multiplicity="0..1" />
+    <End Role="usuario_x_grupos_usuario" Type="KANBANModel.Store.usuario_x_grupos_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuario_x_grupos_usuario">
+        <PropertyRef Name="id_grupos_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_grup__628FA481">
+    <End Role="grupo_usuarios_x_fases" Type="KANBANModel.Store.grupo_usuarios_x_fases" Multiplicity="0..1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_usuarios_x_fases">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_grupo_usuarios_x_fases" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_grup__7D439ABD">
+    <End Role="grupo_usuarios_x_fases" Type="KANBANModel.Store.grupo_usuarios_x_fases" Multiplicity="0..1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_usuarios_x_fases">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_grupo_usuarios_x_fases" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__projeto_x__id_pr__06CD04F7">
+    <End Role="projeto" Type="KANBANModel.Store.projeto" Multiplicity="1" />
+    <End Role="projeto_x_usuario" Type="KANBANModel.Store.projeto_x_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projeto_x_usuario">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__projeto_x__id_pr__6C190EBB">
+    <End Role="projeto" Type="KANBANModel.Store.projeto" Multiplicity="1" />
+    <End Role="projeto_x_usuario" Type="KANBANModel.Store.projeto_x_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projeto_x_usuario">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_proj__60A75C0F">
+    <End Role="projeto" Type="KANBANModel.Store.projeto" Multiplicity="1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_proj__7B5B524B">
+    <End Role="projeto" Type="KANBANModel.Store.projeto" Multiplicity="1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__projeto_x__id_us__07C12930">
+    <End Role="usuario" Type="KANBANModel.Store.usuario" Multiplicity="1" />
+    <End Role="projeto_x_usuario" Type="KANBANModel.Store.projeto_x_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projeto_x_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__projeto_x__id_us__6D0D32F4">
+    <End Role="usuario" Type="KANBANModel.Store.usuario" Multiplicity="1" />
+    <End Role="projeto_x_usuario" Type="KANBANModel.Store.projeto_x_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projeto_x_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sprints__id_spri__5EBF139D">
+    <End Role="sprints" Type="KANBANModel.Store.sprints" Multiplicity="0..1" />
+    <End Role="sprints1" Type="KANBANModel.Store.sprints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sprints">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="sprints1">
+        <PropertyRef Name="id_sprints_dependencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sprints__id_spri__797309D9">
+    <End Role="sprints" Type="KANBANModel.Store.sprints" Multiplicity="0..1" />
+    <End Role="sprints1" Type="KANBANModel.Store.sprints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sprints">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="sprints1">
+        <PropertyRef Name="id_sprints_dependencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_spri__5FB337D6">
+    <End Role="sprints" Type="KANBANModel.Store.sprints" Multiplicity="0..1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sprints">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_sprints" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_spri__7A672E12">
+    <End Role="sprints" Type="KANBANModel.Store.sprints" Multiplicity="0..1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sprints">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_sprints" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_stat__619B8048">
+    <End Role="status" Type="KANBANModel.Store.status" Multiplicity="0..1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_stat__7C4F7684">
+    <End Role="status" Type="KANBANModel.Store.status" Multiplicity="0..1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefa_x___id_ta__08B54D69">
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="1" />
+    <End Role="tarefa_x_comentario" Type="KANBANModel.Store.tarefa_x_comentario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarefas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefa_x_comentario">
+        <PropertyRef Name="id_tarefas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefa_x___id_ta__6E01572D">
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="1" />
+    <End Role="tarefa_x_comentario" Type="KANBANModel.Store.tarefa_x_comentario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarefas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefa_x_comentario">
+        <PropertyRef Name="id_tarefas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefa_x___id_ta__0A9D95DB">
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="0..1" />
+    <End Role="tarefa_x_usuario" Type="KANBANModel.Store.tarefa_x_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarefas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefa_x_usuario">
+        <PropertyRef Name="id_tarefas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefa_x___id_us__09A971A2">
+    <End Role="usuario" Type="KANBANModel.Store.usuario" Multiplicity="0..1" />
+    <End Role="tarefa_x_usuario" Type="KANBANModel.Store.tarefa_x_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefa_x_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefa_x___id_us__0B91BA14">
+    <End Role="usuario" Type="KANBANModel.Store.usuario" Multiplicity="0..1" />
+    <End Role="tarefa_x_usuario" Type="KANBANModel.Store.tarefa_x_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefa_x_usuario">
+        <PropertyRef Name="id_usuario_proximo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_tare__01142BA1">
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="0..1" />
+    <End Role="tarefas1" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarefas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas1">
+        <PropertyRef Name="id_tarefa_dependencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_tare__02084FDA">
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="0..1" />
+    <End Role="tarefas1" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarefas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas1">
+        <PropertyRef Name="id_tarefa_agrupador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_tare__66603565">
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="0..1" />
+    <End Role="tarefas1" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarefas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas1">
+        <PropertyRef Name="id_tarefa_dependencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_tare__6754599E">
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="0..1" />
+    <End Role="tarefas1" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarefas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas1">
+        <PropertyRef Name="id_tarefa_agrupador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_tipo__6477ECF3">
+    <End Role="tipo" Type="KANBANModel.Store.tipo" Multiplicity="1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_tipo__7F2BE32F">
+    <End Role="tipo" Type="KANBANModel.Store.tipo" Multiplicity="1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_usua__6383C8BA">
+    <End Role="usuario" Type="KANBANModel.Store.usuario" Multiplicity="1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_usuario_creator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tarefas__id_usua__7E37BEF6">
+    <End Role="usuario" Type="KANBANModel.Store.usuario" Multiplicity="1" />
+    <End Role="tarefas" Type="KANBANModel.Store.tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="id_usuario_creator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuario_x__id_us__0E6E26BF">
+    <End Role="usuario" Type="KANBANModel.Store.usuario" Multiplicity="0..1" />
+    <End Role="usuario_x_grupos_usuario" Type="KANBANModel.Store.usuario_x_grupos_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuario_x_grupos_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
