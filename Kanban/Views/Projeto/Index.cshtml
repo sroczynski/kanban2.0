@@ -1,0 +1,33 @@
+﻿@model Data.Object.ProjetoIndex
+
+@{
+    ViewBag.Title = "Index";
+
+    <script>
+        
+    </script>    
+}
+
+@{
+<h2>Projeto</h2>
+
+    @Html.ActionLink("Novo", "Criar", null, htmlAttributes: new { @class="btn btn-primary"});
+    @Html.ActionLink("Voltar", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-default" });
+    <br />
+    
+    <table class="table table-striped table-responsive">
+        @foreach (var item in Model.Projetos)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.titulo</td>
+                <td>@item.descricao</td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { projetoId = item.id }, htmlAttributes: new { @class = "btn btn-primary"})
+                    @Html.ActionLink("Excluir", "Excluir", new { projetoId = item.id }, htmlAttributes: new { @class = "btn btn-danger"})
+                </td>
+            </tr>
+        }
+    </table>
+}
+

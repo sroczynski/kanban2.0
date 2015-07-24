@@ -1,0 +1,243 @@
+﻿@model Data.Object.ProjetoIndex
+@{
+    ViewBag.Title = "Home Page";
+
+    <script type="text/javascript" src="~/Scripts/interact/interact.js"></script>
+
+    <script>
+        interact('.dropzone').dropzone({
+            // only accept elements matching this CSS selector
+            accept: '.draggable',
+            // Require a 75% element overlap for a drop to be possible
+            overlap: 0.75,
+
+            // listen for drop related events:
+
+            ondropactivate: function (event) {
+                // add active dropzone feedback
+                event.target.classList.add('drop-active');
+            },
+            ondragenter: function (event) {
+                var draggableElement = event.relatedTarget,
+                    dropzoneElement = event.target;
+
+                // feedback the possibility of a drop
+                dropzoneElement.classList.add('drop-target');
+                draggableElement.classList.add('can-drop');
+                //draggableElement.textContent = 'Dragged in';
+            },
+            ondragleave: function (event) {
+                // remove the drop feedback style
+                event.target.classList.remove('drop-target');
+                //event.relatedTarget.classList.remove('can-drop');
+                //event.relatedTarget.textContent = 'Dragged out';
+            },
+            ondrop: function (event) {
+                //event.relatedTarget.textContent = 'Dropped';
+            },
+            ondropdeactivate: function (event) {
+                //remove active dropzone feedback
+                event.target.classList.remove('drop-active');
+                event.target.classList.remove('drop-target');
+            }
+        });
+
+
+
+
+        interact('.draggable')
+            .draggable({
+                // enable inertial throwing
+                inertia: true,
+                // keep the element within the area of it's parent
+                //restrict: {
+                //    restriction: "parent",
+                //    endOnly: true,
+                //    elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+                //},
+
+                // call this function on every dragmove event
+                onmove: dragMoveListener,
+                // call this function on every dragend event
+                //onend: function (event) {
+                //    var textEl = event.target.querySelector('p');
+
+                //    textEl && (textEl.textContent =
+                //      'moved a distance of '
+                //      + (Math.sqrt(event.dx * event.dx +
+                //                   event.dy * event.dy) | 0) + 'px');
+                //}
+            });
+
+        function dragMoveListener(event) {
+            var target = event.target,
+                // keep the dragged position in the data-x/data-y attributes
+                x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+                y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+            // translate the element
+            target.style.webkitTransform =
+            target.style.transform =
+              'translate(' + x + 'px, ' + y + 'px)';
+
+            // update the posiion attributes
+            target.setAttribute('data-x', x);
+            target.setAttribute('data-y', y);
+        }
+
+        // this is used later in the resizing demo
+        window.dragMoveListener = dragMoveListener;
+
+    </script>
+
+    <style>
+        .textPost-it {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 0px;
+            width: 190px !important;
+            margin: 10px 0px 0px 5px;
+        }
+
+        hr {
+            margin: 10px 0px 0px 5px;
+            width: 90%;
+        }
+
+        .post-it {
+            float: left;
+            background-color: transparent;
+            border: 0px;
+            padding: 0px;
+            height: 210px !important;
+            width: 210px !important;
+            margin: 0px 0px 0px 0px;
+            color: white;
+            background-image: url(../../Images/post-it.png);
+            background-repeat: no-repeat;
+            background-size: 210px;
+        }
+
+        timer {
+            display: inline-block;
+            background-color: #0088cf;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            padding: 1px;
+            padding-left: 5px;
+            height: 25px !important;
+            width: 95px;
+            margin: 0px 0px 0px 5px;
+        }
+
+        input[type='time'] {
+            font-family: Verdana;
+            font-weight: 600;
+            font-size: small;
+        }
+
+        .play {
+            display: inline-block;
+            background-color: transparent;
+            border: 0px;
+            padding: 7px;
+            height: 25px !important;
+            width: 25px !important;
+            margin: 5px 0px 0px 0px;
+            background-image: url(../../Images/play.png);
+            background-size: 25px;
+            background-repeat: no-repeat;
+        }
+
+        .pause {
+            display: inline-block;
+            background-color: transparent;
+            border: 0px;
+            padding: 7px;
+            height: 25px !important;
+            width: 25px !important;
+            margin: 0px;
+            background-image: url(../../Images/pause.png);
+            background-size: 25px;
+            background-repeat: no-repeat;
+        }
+
+        .stop {
+            display: inline-block;
+            background-color: transparent;
+            border: 0px;
+            padding: 7px;
+            height: 25px !important;
+            width: 25px !important;
+            margin: 0px;
+            background-image: url(../../Images/stop.png);
+            background-size: 25px;
+            background-repeat: no-repeat;
+        }
+
+        .dropzone {
+            border: 1px solid black;
+            height: auto;
+            width: 33%;
+            float: left;
+            background-color: whitesmoke;
+        }
+
+        .drag-drop {
+            display: inline-block;
+            min-width: 40px;
+            padding: 2em 0.5em;
+            color: #fff;
+            background-color: transparent;
+            border: 0px;
+            -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+            transition: background-color 0.3s;
+        }
+
+        .drop-active {
+            border-color: #aaa;
+        }
+
+        .drop-target {
+            background-color: #4800ff;
+            border-color: #fff;
+            border-style: solid;
+        }
+    </style>
+}
+@{
+    <div class="container-fluid teste">
+
+        @foreach (var fase in Model.Fases)
+        {
+            <div id="inner-dropzone" data-fase="@fase.idFase" class="dropzone">
+                <div>
+                    @fase.descricao.ToUpper()
+                </div>
+                @foreach (var tarefa in Model.Projetos)
+                {
+                    <div class="draggable drag-drop post-it">
+                        <div style="height:70%">
+                            <h3 class="textPost-it">@tarefa.titulo</h3>
+                            <hr />
+                            <p class="textPost-it">@tarefa.descricao</p>
+                        </div>
+                        <div style="height:30%;text-align: center; width: 165px; margin: auto;">
+                            <input type="time" class="timer">
+                            <!-- <div class="display"><p class="um">00 : 00 : 00</p></div>-->
+                            <input type="button" class="play">
+                            <input type="button" class="pause">
+                            <input type="button" class="stop">
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+    </div>
+
+
+
+}

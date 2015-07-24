@@ -1,0 +1,26 @@
+﻿@model List<Data.Object.TarefaIndex>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+<h2>Tarefa</h2>
+
+    @Html.ActionLink("Novo", "Criar", null, htmlAttributes: new { @class="btn btn-primary"});
+    @Html.ActionLink("Voltar", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-default" });
+    <br />
+    <table class="table table-striped table-responsive">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>#@item.id</td>
+                <td>@item.projeto</td>
+                <td>@item.titulo</td>
+                <td>@item.dtCriacao.ToString("dd/MM/yyyy hh:mm:ss")</td>
+                <td>@Html.ActionLink("Editar", "Editar", new { tarefaId = item.id }, htmlAttributes: new { @class = "btn btn-primary" })</td>
+            </tr>
+        }
+    </table>
+}
+

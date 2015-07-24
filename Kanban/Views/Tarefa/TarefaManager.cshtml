@@ -1,0 +1,94 @@
+﻿@model Data.Object.TarefaView
+@{
+    ViewBag.Title = "Manutenção de Tarefa";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Ajax.BeginForm(Model.newRegister ? "Criar" : "Editar", new AjaxOptions() { OnSuccess = "onSuccess", HttpMethod = "POST" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Tarefa</legend>
+            @Html.ValidationSummary()
+
+            @Html.HiddenFor(model => model.TarefaId)
+            @Html.HiddenFor(model => model.Projeto)
+
+            <div class="form-group">
+                <label>Descrição:</label>
+                <div class="input-group">
+                    @Html.TextArea("descricao", Model.Descricao)
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Indice:</label>
+                <div class="input-group">
+                    @Html.TextBox("indice", Model.indice)
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Tempo Estimado:</label>
+                <div class="input-group">
+                    @Html.TextBox("tempoEstimado", Model.TempoEstimado, new { disabled="disabled" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Projeto:</label>
+                <div class="input-group">
+                    @Html.DropDownList("idProjeto", Model.Projeto)
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Sprint:</label>
+                <div class="input-group">
+                    @Html.DropDownList("idSprint", Model.Sprint)
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Classificação:</label>
+                <div class="input-group">
+                    @Html.DropDownList("idClassificacao", Model.Classificacao)
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Tarefas Pai:</label>
+                <div class="input-group">
+                    @*@Html.DropDownList("idTarefaDependencia", Model.Tarefas)*@
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Tipo:</label>
+                <div class="input-group">
+                    @Html.DropDownList("idTipo", Model.Tipo)
+                </div>
+            </div>
+
+            @if (!Model.newRegister)
+            {
+                <div class="form-group">
+                    <label>Data Criação</label>
+                    <div class="input-group">
+                        @Html.TextBox("dt_Criacao", Model.DataCriacao, new { type = "date", disabled = "disabled"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Usuário criador</label>
+                    <div class="input-group">
+                        @Html.TextBox("UsuarioCriador", Model.UsuarioCriador, new { disabled = "disabled" })
+                    </div>
+                </div>
+            }
+
+            <input type="submit" value="Salvar" class="btn btn-primary" />
+            @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+
+        </fieldset>
+        }
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

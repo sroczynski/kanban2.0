@@ -1,0 +1,41 @@
+﻿@model Data.Object.StatusRequest
+
+@{
+    ViewBag.Title = "Manutenção de Sprint";
+}
+
+<script>
+
+</script>
+
+<h2>@ViewBag.Title</h2>
+
+@using (Ajax.BeginForm(Model.newRegister ? "Criar" : "Editar", new AjaxOptions() { OnSuccess = "onSuccess", HttpMethod = "POST" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Status</legend>
+
+        @Html.ValidationSummary()
+
+        @Html.HiddenFor(model => model.idStatus)
+
+        <div class="form-group">
+            <label for="titulo">Título:</label>
+            <div class="input-group">
+                @Html.EditorFor(model => model.descricao)
+                @Html.ValidationMessageFor(model => model.descricao)
+            </div>
+        </div>
+
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+        @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
