@@ -16,8 +16,23 @@ namespace Kanban.Controllers
             return View(UsuarioModel.Index());
         }
 
-        //[HttpPost]
-        //public ActionResult Logar(UsuarioLogin )
+        [HttpPost]
+        public ActionResult Logar(UsuarioLogin request)
+        {
+            if (UsuarioModel.AutenticarUsuario(request.Login, request.Senha))
+	        {
+                ViewBag.msg_Error = "O nome de usuário ou a senha informada estão incorretas.";
+                return View(request);
+	        }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View("Login");
+        }
 
         [HttpGet]
         public ActionResult Criar()

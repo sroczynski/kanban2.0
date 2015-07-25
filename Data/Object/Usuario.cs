@@ -40,4 +40,12 @@ namespace Data.Object
     {
         public List<Usuario> Usuario { get; set; }
     }
+
+    public class UsuarioLogin
+    {
+        public string Login { get; set; }
+
+        public string Senha { get; set; }
+    }
+
 }
