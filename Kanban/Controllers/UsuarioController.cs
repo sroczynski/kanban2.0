@@ -16,6 +16,9 @@ namespace Kanban.Controllers
             return View(UsuarioModel.Index());
         }
 
+        //[HttpPost]
+        //public ActionResult Logar(UsuarioLogin )
+
         [HttpGet]
         public ActionResult Criar()
         {

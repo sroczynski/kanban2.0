@@ -3,12 +3,59 @@ using Data.Object.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Kanban.Models
 {
 	public class UsuarioModel
 	{
+        public static bool AutenticarUsuario(string Login, string Senha)
+        {
+            using(KANBANEntities db = new KANBANEntities())
+	        {
+		        var usuarioLogin = db.usuario.FirstOrDefault(x => x.login == Login && x.senha == Senha);
+                if (usuarioLogin == null)
+	                return false;
+
+                FormsAuthentication.SetAuthCookie(usuarioLogin.login, false);
+	        }
+            return true;
+        }
+
+        public static Usuario GetUsuarioLogado()
+        {
+            string _Login = HttpContext.Current.User.Identity.Name;
+            if (string.IsNullOrEmpty(_Login))
+            {
+                return null;
+            }
+            else
+            {
+                Usuario usuarioLogado;
+                using (KANBANEntities db = new KANBANEntities())
+                {
+                    var usuario = db.usuario.FirstOrDefault(x => x.login == _Login);
+                    usuarioLogado = new Usuario();
+                    usuarioLogado.idUsuario = usuario.id;
+                    usuarioLogado.login = usuario.login;
+                    usuarioLogado.nomeUsuario = usuario.nome_usuario;
+                }
+                return usuarioLogado;
+            }
+        }
+
+        public static void Deslogar()
+        {
+            FormsAuthentication.SignOut();
+        }
+
+
+        /*
+         * rotinas de sistema
+         */
+
 		public static UsuarioIndex Index()
 		{
 			UsuarioIndex index = new  UsuarioIndex(){ 
