@@ -317,3 +317,5 @@ C:\workspace\ProjetoKanban\Kanban\bin\zh-Hant\System.Spatial.resources.dll
 C:\workspace\ProjetoKanban\Kanban\obj\Debug\Kanban.csprojResolveAssemblyReference.cache
 C:\workspace\ProjetoKanban\Kanban\obj\Debug\Kanban.dll
 C:\workspace\ProjetoKanban\Kanban\obj\Debug\Kanban.pdb
+C:\workspace\ProjetoKanban\Kanban\bin\System.Web.Helpers.dll
+C:\workspace\ProjetoKanban\Kanban\bin\System.Web.Helpers.xml
