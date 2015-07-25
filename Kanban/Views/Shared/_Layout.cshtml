@@ -8,36 +8,48 @@
 
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/bootstrap")
-    <link href="~/Content/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/font-awesome/css/font-awesome.css" rel="stylesheet">
     
     <link href="~/Content/bootstrap.css" rel="stylesheet">
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/interact")
     <script type="text/javascript" src="~/Scripts/Master/Master.js"></script>
+
+    <style>
+        .dropdown{
+            text-align:right;
+        }
+    </style>
+
 </head>
 <body>
     <!-- Menu lateral -->
-    <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle">
-        <i class="fa fa-reorder"></i>
-    </a>
-
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <li class="active"></li>
-            <li>@Html.ActionLink("Projetos", "Index", "Projeto")</li>
-            <li>@Html.ActionLink("Tarefa", "Index", "Tarefa")</li>
-            <li>@Html.ActionLink("Sprint", "Index", "Sprint")</li>
-            <li>@Html.ActionLink("Status", "Index", "Status")</li>
-            <li>@Html.ActionLink("Tipo", "Index", "Tipo")</li>
-        </ul>
-
-    </div>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                    <li class="active"></li>
+                    <li>@Html.ActionLink("Projetos", "Index", "Projeto")</li>
+                    <li>@Html.ActionLink("Tarefa", "Index", "Tarefa")</li>
+                    <li>@Html.ActionLink("Sprint", "Index", "Sprint")</li>
+                    <li>@Html.ActionLink("Status", "Index", "Status")</li>
+                    <li>@Html.ActionLink("Tipo", "Index", "Tipo")</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <!-- End - Menu lateral -->
 
     <div id="principal">
         @RenderSection("featured", required: false)
-            @RenderBody()
+        @*<section class="container content-wrapper main-content clear-fix">*@
+
+        @RenderBody()
+
+        @*</section>*@
     </div>
     <footer>
         <div class="content-wrapper">

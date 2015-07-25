@@ -91,20 +91,6 @@
     </script>
 
     <style>
-        .textPost-it {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            border: 0px;
-            width: 190px !important;
-            margin: 10px 0px 0px 5px;
-        }
-
-        hr {
-            margin: 10px 0px 0px 5px;
-            width: 90%;
-        }
-
         .post-it {
             float: left;
             background-color: transparent;
@@ -119,7 +105,69 @@
             background-size: 210px;
         }
 
-        timer {
+        .post-it .open-modal {
+            position: relative;
+            margin-left: 170px;
+            margin-top:8px;
+            width: 15px;
+            height: 15px;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .post-it .open-modal:hover {
+            opacity: .3;
+        }
+
+        .post-it .open-modal .lr {
+            z-index: 1051;
+            width: 2px;
+            height: 15px;
+            background-color: #fff;
+            -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+            
+        }
+
+        .post-it .open-modal .lr .rl {
+            z-index: 1052;
+            width: 2px;
+            height: 15px;
+            background-color: #fff;
+            -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+            
+        }
+
+        .post-it .text {
+            height:60%;
+            margin-top:0px;
+            padding-top:0px;
+        }
+
+        .post-it .botons {
+            text-align: center;
+            width: 195px;
+            margin: 0px;
+        }
+
+        .post-it .textPost-it {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 0px;
+            width: 190px !important;
+            margin: 0px 0px 0px 5px;
+        }
+
+        hr {
+            margin: 10px 0px 0px 5px;
+            width: 90%;
+        }
+
+        .post-it .timer {
             display: inline-block;
             background-color: #0088cf;
             border: 2px solid #fff;
@@ -127,17 +175,18 @@
             padding: 1px;
             padding-left: 5px;
             height: 25px !important;
-            width: 95px;
-            margin: 0px 0px 0px 5px;
+            width: 80px;
+            margin: 0px 3px 0px 0px;
         }
 
         input[type='time'] {
             font-family: Verdana;
             font-weight: 600;
             font-size: small;
+            color: #fff;
         }
 
-        .play {
+        .post-it .play {
             display: inline-block;
             background-color: transparent;
             border: 0px;
@@ -150,7 +199,7 @@
             background-repeat: no-repeat;
         }
 
-        .pause {
+        .post-it .pause {
             display: inline-block;
             background-color: transparent;
             border: 0px;
@@ -163,7 +212,7 @@
             background-repeat: no-repeat;
         }
 
-        .stop {
+        .post-it .stop {
             display: inline-block;
             background-color: transparent;
             border: 0px;
@@ -205,6 +254,82 @@
             border-color: #fff;
             border-style: solid;
         }
+
+        .portfolio-modal .modal-content {
+            padding: 100px 0;
+            min-height: 100%;
+            border: 0;
+            border-radius: 0;
+            text-align: center;
+            background-clip: border-box;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .portfolio-modal .modal-content h2 {
+            margin-bottom: 15px;
+            font-size: 3em;
+        }
+
+        .portfolio-modal .modal-content p {
+            margin-bottom: 30px;
+        }
+
+        .portfolio-modal .modal-content p.item-intro {
+            margin: 20px 0 30px;
+            font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        .portfolio-modal .modal-content ul.list-inline {
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .portfolio-modal .modal-content img {
+            margin-bottom: 30px;
+        }
+
+        .portfolio-modal .close-modal {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .portfolio-modal .close-modal:hover {
+            opacity: .3;
+        }
+
+        .portfolio-modal .close-modal .lr {
+            z-index: 1051;
+            width: 1px;
+            height: 50px;
+            margin-left: 35px;
+            background-color: #222;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .portfolio-modal .close-modal .lr .rl {
+            z-index: 1052;
+            width: 1px;
+            height: 50px;
+            background-color: #222;
+            -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        .portfolio-modal .modal-backdrop {
+            display: none;
+            opacity: 0;
+        }
     </style>
 }
 @{
@@ -218,26 +343,52 @@
                 </div>
                 @foreach (var tarefa in Model.Projetos)
                 {
-                    <div class="draggable drag-drop post-it">
-                        <div style="height:70%">
-                            <h3 class="textPost-it">@tarefa.titulo</h3>
-                            <hr />
-                            <p class="textPost-it">@tarefa.descricao</p>
-                        </div>
-                        <div style="height:30%;text-align: center; width: 165px; margin: auto;">
-                            <input type="time" class="timer">
-                            <!-- <div class="display"><p class="um">00 : 00 : 00</p></div>-->
-                            <input type="button" class="play">
-                            <input type="button" class="pause">
-                            <input type="button" class="stop">
-                        </div>
-                    </div>
+                        <div class="draggable drag-drop post-it">
+                            <a href="#tarefas" class="" data-toggle="modal">
+                                <div class="open-modal">
+                                    <div class="lr">
+                                        <div class="rl">
+                                        </div>
+                                    </div>
+                                </div>
+                                </a>
+                            <div class="text">
+                                <h3 class="textPost-it">@tarefa.titulo</h3>
+                                <hr />
+                                <p class="textPost-it">@tarefa.descricao</p>
+                            </div>
+                                <div class="botons">
+                                    <input type="time" class="timer">
+                                    <input type="button" class="play">
+                                    <input type="button" class="pause">
+                                    <input type="button" class="stop">
+                                </div>
+</div>
                 }
             </div>
         }
 
     </div>
 
-
+     <!-- Modal Tarefas -->
+    <div class="portfolio-modal modal fade" id="tarefas" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            TESTANDO
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 }
