@@ -17,6 +17,12 @@ namespace Kanban.Controllers
         }
 
         [HttpGet]
+        public ActionResult Login()
+        {
+            return View("Login");
+        }
+
+        [HttpGet]
         public ActionResult Criar()
         {
             return View("UsuarioManager", new UsuarioView() { newRegister = true });

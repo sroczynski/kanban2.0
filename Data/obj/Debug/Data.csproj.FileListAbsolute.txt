@@ -7,3 +7,4 @@ C:\workspace\ProjetoKanban\Data\bin\Debug\Data.dll
 C:\workspace\ProjetoKanban\Data\bin\Debug\Data.pdb
 C:\workspace\ProjetoKanban\Data\obj\Debug\Data.dll
 C:\workspace\ProjetoKanban\Data\obj\Debug\Data.pdb
+C:\workspace\ProjetoKanban\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache

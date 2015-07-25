@@ -183,6 +183,7 @@
     <Compile Include="Controllers\SprintController.cs" />
     <Compile Include="Controllers\TarefaController.cs" />
     <Compile Include="Controllers\ProjetoController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controls\report.ascx.cs">
       <DependentUpon>report.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -464,6 +465,7 @@
     <Content Include="Views\Status\StatusManager.cshtml" />
     <Content Include="Views\Tipo\Index.cshtml" />
     <Content Include="Views\Tipo\TipoManager.cshtml" />
+    <Content Include="Views\Usuario\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
