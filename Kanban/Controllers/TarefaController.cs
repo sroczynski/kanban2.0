@@ -34,11 +34,10 @@ namespace Kanban.Controllers
             return Json(response);
         }
         
-        [HttpGet]
-        public ActionResult Editar(int tarefaId)
+        public ActionResult EditarBuscar(string tarefaId)
         {
-            TarefaView model = TarefaModel.EditarView(tarefaId);
-            return View("TarefaManager", model);
+            TarefaView model = TarefaModel.EditarView(Convert.ToInt32(tarefaId));
+            return PartialView("TarefaManager", model);
         }
 
         [HttpPost]
@@ -46,6 +45,11 @@ namespace Kanban.Controllers
         {
             var response = TarefaModel.Editar(request);
             return Json(new object());
+        }
+
+        public void DropTarefa(int tarefaId, int faseId)
+        {
+            TarefaModel.MudarFase(tarefaId, faseId);
         }
     }
 }

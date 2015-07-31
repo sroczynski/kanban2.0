@@ -5,28 +5,29 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="31f286954d114d8e9516db1f3e3e87a7" Name="Diagram1" ZoomLevel="28">
-        <EntityTypeShape EntityType="KANBANModel.avatar" Width="1.5" PointX="1.5" PointY="9.5" />
-        <EntityTypeShape EntityType="KANBANModel.classificacao" Width="1.5" PointX="3.75" PointY="25.875" />
-        <EntityTypeShape EntityType="KANBANModel.fases" Width="1.5" PointX="1.5" PointY="12.5" />
-        <EntityTypeShape EntityType="KANBANModel.grupo_usuario_x_permissao" Width="1.5" PointX="6.75" PointY="17.5" />
-        <EntityTypeShape EntityType="KANBANModel.grupo_usuarios" Width="1.5" PointX="1.5" PointY="15" />
-        <EntityTypeShape EntityType="KANBANModel.grupo_usuarios_x_fases" Width="1.5" PointX="3.75" PointY="14.25" />
-        <EntityTypeShape EntityType="KANBANModel.permissao" Width="1.5" PointX="4.5" PointY="28.875" />
-        <EntityTypeShape EntityType="KANBANModel.projeto" Width="1.5" PointX="0.75" PointY="6.25" />
-        <EntityTypeShape EntityType="KANBANModel.projeto_x_usuario" Width="1.5" PointX="3" PointY="6.25" />
-        <EntityTypeShape EntityType="KANBANModel.sprints" Width="1.5" PointX="3.75" PointY="21.625" />
-        <EntityTypeShape EntityType="KANBANModel.status" Width="1.5" PointX="3.75" PointY="10" />
-        <EntityTypeShape EntityType="KANBANModel.tarefa_x_comentario" Width="1.5" PointX="8.25" PointY="10.75" />
-        <EntityTypeShape EntityType="KANBANModel.tarefa_x_usuario" Width="1.5" PointX="8.25" PointY="5.625" />
-        <EntityTypeShape EntityType="KANBANModel.tarefas" Width="1.5" PointX="6" PointY="3" />
-        <EntityTypeShape EntityType="KANBANModel.tipo" Width="1.5" PointX="3.75" PointY="19.125" />
-        <EntityTypeShape EntityType="KANBANModel.usuario" Width="1.5" PointX="0.75" PointY="1.375" />
-        <EntityTypeShape EntityType="KANBANModel.usuario_x_grupos_usuario" Width="1.5" PointX="6.75" PointY="13.875" />
+        <EntityTypeShape EntityType="KANBANModel.avatar" Width="1.5" PointX="1.5" PointY="15.875" />
+        <EntityTypeShape EntityType="KANBANModel.classificacao" Width="1.5" PointX="0.75" PointY="31.75" />
+        <EntityTypeShape EntityType="KANBANModel.fases" Width="1.5" PointX="0.75" PointY="34.5" />
+        <EntityTypeShape EntityType="KANBANModel.grupo_usuario_x_permissao" Width="1.5" PointX="3.75" PointY="27.625" />
+        <EntityTypeShape EntityType="KANBANModel.grupo_usuarios" Width="1.5" PointX="1.5" PointY="27.125" />
+        <EntityTypeShape EntityType="KANBANModel.grupo_usuarios_x_fases" Width="1.5" PointX="0.75" PointY="23.625" />
+        <EntityTypeShape EntityType="KANBANModel.permissao" Width="1.5" PointX="1.5" PointY="37.875" />
+        <EntityTypeShape EntityType="KANBANModel.projeto" Width="1.5" PointX="0.75" PointY="6.625" />
+        <EntityTypeShape EntityType="KANBANModel.projeto_x_usuario" Width="1.5" PointX="6" PointY="6.625" />
+        <EntityTypeShape EntityType="KANBANModel.sprints" Width="1.5" PointX="0.75" PointY="18.875" />
+        <EntityTypeShape EntityType="KANBANModel.status" Width="1.5" PointX="0.75" PointY="10.25" />
+        <EntityTypeShape EntityType="KANBANModel.tarefa_x_comentario" Width="1.5" PointX="5.25" PointY="11" />
+        <EntityTypeShape EntityType="KANBANModel.tarefa_x_usuario" Width="1.5" PointX="8.25" PointY="5.875" />
+        <EntityTypeShape EntityType="KANBANModel.tarefas" Width="1.5" PointX="3" PointY="3" />
+        <EntityTypeShape EntityType="KANBANModel.tipo" Width="1.5" PointX="0.75" PointY="13.125" />
+        <EntityTypeShape EntityType="KANBANModel.usuario" Width="1.5" PointX="3.75" PointY="14.75" />
+        <EntityTypeShape EntityType="KANBANModel.usuario_x_grupos_usuario" Width="1.5" PointX="6" PointY="21.625" />
         <AssociationConnector Association="KANBANModel.FK__usuario__id_avat__02FC7413" />
         <AssociationConnector Association="KANBANModel.FK__usuario__id_avat__68487DD7" />
         <AssociationConnector Association="KANBANModel.FK__tarefas__id_clas__00200768" />
         <AssociationConnector Association="KANBANModel.FK__tarefas__id_clas__656C112C" />
         <AssociationConnector Association="KANBANModel.FK__grupo_usu__id_fa__10566F31" />
+        <AssociationConnector Association="KANBANModel.FK_tarefas_fases" />
         <AssociationConnector Association="KANBANModel.FK__grupo_usu__id_gr__05D8E0BE" />
         <AssociationConnector Association="KANBANModel.FK__grupo_usu__id_gr__6B24EA82" />
         <AssociationConnector Association="KANBANModel.FK__grupo_usu__id_pe__04E4BC85" />

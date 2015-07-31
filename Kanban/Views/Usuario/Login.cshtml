@@ -48,36 +48,36 @@
 </style>
 
 
-@using (Ajax.BeginForm("Logar", null, null, new { @class = "form-signin" }))
+@using (Html.BeginForm("Logar", "Usuario", FormMethod.Post, new { @class = "form-signin" }))
 {
-
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Login</legend>
 
-           
-        <fieldset>
-            <legend>Login</legend>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Login, new { @type = "text", @class = "form-control", @placeholder = "Login" })
+            @Html.ValidationMessageFor(model => model.Login)
+        </div>
 
-            <div class="editor-field">
-                @Html.TextBoxFor(model => model.Login, new { @type = "text", @class = "form-control", @placeholder = "Login" })
-                @Html.ValidationMessageFor(model => model.Login)
-            </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Senha, new { @type = "password", @class = "form-control", @placeholder = "Senha" })
+            @Html.ValidationMessageFor(model => model.Senha)
+        </div>
 
-            <div class="editor-field">
-                @Html.TextBoxFor(model => model.Senha, new { @type = "password", @class = "form-control", @placeholder = "Senha" })
-                @Html.ValidationMessageFor(model => model.Senha)
-            </div>
+        <p>
+            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Logar" />
+        </p>
 
-            <p>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Logar</button>
-            </p>
-
-            @*<label class="checkbox">
-                <input type="checkbox" value="remember-me" class="">Remember me
-            </label>*@
-
-        </fieldset>
+    </fieldset>
     
+    if (!string.IsNullOrEmpty(ViewBag.msg_Error))
+    {
+        <div class="alert alert-danger">
+            @ViewBag.msg_Error
+            
+        </div>
+    }
 }
 
 @section Scripts {

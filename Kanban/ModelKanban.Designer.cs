@@ -1,4 +1,10 @@
-﻿// Geração de código padrão desabilitada para o modelo 'C:\Users\feevale\Desktop\Kanban_Manager\Kanban\ModelKanban.edmx'. 
-// Para habilitar a geração de código padrão, altere o valor da propriedade de designer 'Estratégia de Geração de Código'
-// para um valor alternativo. Essa propriedade está disponível na Janela Propriedades quando o modelo estiver
-// aberto no designer.
+﻿// T4 code generation is enabled for model 'C:\workspace\ProjetoKanban\Kanban\ModelKanban.edmx'. 
+// To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
+// property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
+// is open in the designer.
+
+// If no context and entity classes have been generated, it may be because you created an empty model but
+// have not yet chosen which version of Entity Framework to use. To generate a context class and entity
+// classes for your model, open the model in the designer, right-click on the designer surface, and
+// select 'Update Model from Database...', 'Generate Database from Model...', or 'Add Code Generation
+// Item...'.

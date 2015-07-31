@@ -19,10 +19,10 @@ namespace Kanban.Controllers
         [HttpPost]
         public ActionResult Logar(UsuarioLogin request)
         {
-            if (UsuarioModel.AutenticarUsuario(request.Login, request.Senha))
+            if (!UsuarioModel.AutenticarUsuario(request.Login, request.Senha))
 	        {
                 ViewBag.msg_Error = "O nome de usuário ou a senha informada estão incorretas.";
-                return View(request);
+                return View("Login", request);
 	        }
 
             return RedirectToAction("Index", "Home");
@@ -32,6 +32,12 @@ namespace Kanban.Controllers
         public ActionResult Login()
         {
             return View("Login");
+        }
+
+        public ActionResult Logout()
+        {
+            UsuarioModel.Deslogar();
+            return RedirectToAction("Login", "Usuario");
         }
 
         [HttpGet]

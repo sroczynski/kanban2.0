@@ -2,8 +2,7 @@
 @{
     ViewBag.Title = "TaskBoard";
 
-    <script type="text/javascript" src="~/Scripts/interact/interact.js"></script>
-
+    @*<script type="text/javascript" src="~/Scripts/interact/interact.js"></script>*@
     <script>
         interact('.dropzone').dropzone({
             // only accept elements matching this CSS selector
@@ -24,7 +23,6 @@
                 // feedback the possibility of a drop
                 dropzoneElement.classList.add('drop-target');
                 draggableElement.classList.add('can-drop');
-                //draggableElement.textContent = 'Dragged in';
             },
             ondragleave: function (event) {
                 // remove the drop feedback style
@@ -34,6 +32,13 @@
             },
             ondrop: function (event) {
                 //event.relatedTarget.textContent = 'Dropped';
+                var tarefaId = $(event.interaction.element).find('#tarefaId').val();
+                var faseId = $(event.interaction.dropElement).attr('data-fase');
+
+                $.post('@Url.Action("DropTarefa", "Tarefa")',
+                    {tarefaId: tarefaId, faseId:faseId}  
+                );
+
             },
             ondropdeactivate: function (event) {
                 //remove active dropzone feedback
@@ -42,19 +47,20 @@
             }
         });
 
-
-
+        /*
+         * Segunda parte do plugin
+         */
 
         interact('.draggable')
             .draggable({
                 // enable inertial throwing
                 inertia: true,
                 // keep the element within the area of it's parent
-                //restrict: {
-                //    restriction: "parent",
-                //    endOnly: true,
-                //    elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
-                //},
+                restrict: {
+                    restriction: ".painel",
+                    endOnly: true,
+                    elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+                },
 
                 // call this function on every dragmove event
                 onmove: dragMoveListener,
@@ -105,62 +111,60 @@
             background-size: 210px;
         }
 
-        .post-it .open-modal {
-            position: relative;
-            margin-left: 170px;
-            margin-top:8px;
-            width: 15px;
-            height: 15px;
-            background-color: transparent;
-            cursor: pointer;
-        }
+            .post-it .open-modal {
+                position: relative;
+                margin-left: 170px;
+                margin-top: 8px;
+                width: 15px;
+                height: 15px;
+                background-color: transparent;
+                cursor: pointer;
+            }
 
-        .post-it .open-modal:hover {
-            opacity: .3;
-        }
+                .post-it .open-modal:hover {
+                    opacity: .3;
+                }
 
-        .post-it .open-modal .lr {
-            z-index: 1051;
-            width: 2px;
-            height: 15px;
-            background-color: #fff;
-            -webkit-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-            
-        }
+                .post-it .open-modal .lr {
+                    z-index: 1051;
+                    width: 2px;
+                    height: 15px;
+                    background-color: #fff;
+                    -webkit-transform: rotate(90deg);
+                    -ms-transform: rotate(90deg);
+                    transform: rotate(90deg);
+                }
 
-        .post-it .open-modal .lr .rl {
-            z-index: 1052;
-            width: 2px;
-            height: 15px;
-            background-color: #fff;
-            -webkit-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-            
-        }
+                    .post-it .open-modal .lr .rl {
+                        z-index: 1052;
+                        width: 2px;
+                        height: 15px;
+                        background-color: #fff;
+                        -webkit-transform: rotate(90deg);
+                        -ms-transform: rotate(90deg);
+                        transform: rotate(90deg);
+                    }
 
-        .post-it .text {
-            height:60%;
-            margin-top:0px;
-            padding-top:0px;
-        }
+            .post-it .text {
+                height: 60%;
+                margin-top: 0px;
+                padding-top: 0px;
+            }
 
-        .post-it .botons {
-            text-align: center;
-            width: 195px;
-            margin: 0px;
-        }
+            .post-it .botons {
+                text-align: center;
+                width: 195px;
+                margin: 0px;
+            }
 
-        .post-it .textPost-it {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            border: 0px;
-            width: 190px !important;
-            margin: 0px 0px 0px 5px;
-        }
+            .post-it .textPost-it {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                border: 0px;
+                width: 190px !important;
+                margin: 0px 0px 0px 5px;
+            }
 
         hr {
             margin: 10px 0px 0px 5px;
@@ -226,11 +230,12 @@
         }
 
         .dropzone {
-            border: 1px solid black;
+            margin-left: 5px;
+            margin-right: 5px;
             height: auto;
-            width: 33%;
+            width: 32%;
             float: left;
-            background-color: whitesmoke;
+            background-color: #F8F8F8;
         }
 
         .drag-drop {
@@ -266,30 +271,30 @@
             box-shadow: none;
         }
 
-        .portfolio-modal .modal-content h2 {
-            margin-bottom: 15px;
-            font-size: 3em;
-        }
+            .portfolio-modal .modal-content h2 {
+                margin-bottom: 15px;
+                font-size: 3em;
+            }
 
-        .portfolio-modal .modal-content p {
-            margin-bottom: 30px;
-        }
+            .portfolio-modal .modal-content p {
+                margin-bottom: 30px;
+            }
 
-        .portfolio-modal .modal-content p.item-intro {
-            margin: 20px 0 30px;
-            font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-            font-size: 16px;
-            font-style: italic;
-        }
+                .portfolio-modal .modal-content p.item-intro {
+                    margin: 20px 0 30px;
+                    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+                    font-size: 16px;
+                    font-style: italic;
+                }
 
-        .portfolio-modal .modal-content ul.list-inline {
-            margin-top: 0;
-            margin-bottom: 30px;
-        }
+            .portfolio-modal .modal-content ul.list-inline {
+                margin-top: 0;
+                margin-bottom: 30px;
+            }
 
-        .portfolio-modal .modal-content img {
-            margin-bottom: 30px;
-        }
+            .portfolio-modal .modal-content img {
+                margin-bottom: 30px;
+            }
 
         .portfolio-modal .close-modal {
             position: absolute;
@@ -301,94 +306,75 @@
             cursor: pointer;
         }
 
-        .portfolio-modal .close-modal:hover {
-            opacity: .3;
-        }
+            .portfolio-modal .close-modal:hover {
+                opacity: .3;
+            }
 
-        .portfolio-modal .close-modal .lr {
-            z-index: 1051;
-            width: 1px;
-            height: 50px;
-            margin-left: 35px;
-            background-color: #222;
-            -webkit-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
-        }
+            .portfolio-modal .close-modal .lr {
+                z-index: 1051;
+                width: 1px;
+                height: 50px;
+                margin-left: 35px;
+                background-color: #222;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
 
-        .portfolio-modal .close-modal .lr .rl {
-            z-index: 1052;
-            width: 1px;
-            height: 50px;
-            background-color: #222;
-            -webkit-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-        }
+                .portfolio-modal .close-modal .lr .rl {
+                    z-index: 1052;
+                    width: 1px;
+                    height: 50px;
+                    background-color: #222;
+                    -webkit-transform: rotate(90deg);
+                    -ms-transform: rotate(90deg);
+                    transform: rotate(90deg);
+                }
 
         .portfolio-modal .modal-backdrop {
             display: none;
             opacity: 0;
         }
     </style>
+
+    <script src="~/Scripts/Master/Master.js" type="text/javascript"></script>
 }
 @{
-    <div class="container-fluid teste">
+    <div class="container-fluid painel">
 
         @foreach (var fase in Model.Fases)
         {
             <div id="inner-dropzone" data-fase="@fase.idFase" class="dropzone">
-                <div>
+                <div class="well-sm" style="text-align:center">
                     @fase.descricao.ToUpper()
                 </div>
                 @foreach (var tarefa in Model.Projetos)
                 {
-                        <div class="draggable drag-drop post-it">
-                            <a href="#tarefas" class="" data-toggle="modal">
-                                <div class="open-modal">
-                                    <div class="lr">
-                                        <div class="rl">
-                                        </div>
+                    <div class="draggable drag-drop post-it">
+                        <a href="#tarefas" class="tarefaEditar" data-toggle="modal">
+                            @Html.Hidden("tarefaId", tarefa.id)
+
+                            <div class="open-modal">
+                                <div class="lr">
+                                    <div class="rl">
                                     </div>
                                 </div>
-                                </a>
-                            <div class="text">
-                                <h3 class="textPost-it">@tarefa.titulo</h3>
-                                <hr />
-                                <p class="textPost-it">@tarefa.descricao</p>
                             </div>
-                                <div class="botons">
-                                    <input type="time" class="timer">
-                                    <input type="button" class="play">
-                                    <input type="button" class="pause">
-                                    <input type="button" class="stop">
-                                </div>
-</div>
+                        </a>
+                        <div class="text">
+                            <h3 class="textPost-it">@tarefa.titulo</h3>
+                            <hr />
+                            <p class="textPost-it">@tarefa.descricao</p>
+                        </div>
+                        <div class="botons">
+                            <input type="time" class="timer">
+                            <input type="button" class="play">
+                            <input type="button" class="pause">
+                            <input type="button" class="stop">
+                        </div>
+                    </div>
                 }
             </div>
         }
-
     </div>
-
-     <!-- Modal Tarefas -->
-    <div class="portfolio-modal modal fade" id="tarefas" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            TESTANDO
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 }

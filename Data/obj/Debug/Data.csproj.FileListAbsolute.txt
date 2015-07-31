@@ -10,3 +10,5 @@ C:\workspace\ProjetoKanban\Data\obj\Debug\Data.dll
 C:\workspace\ProjetoKanban\Data\obj\Debug\Data.pdb
 C:\workspace\ProjetoKanban\Data\bin\Debug\System.Web.Mvc.dll
 C:\workspace\ProjetoKanban\Data\bin\Debug\System.Web.Mvc.xml
+C:\workspace\ProjetoKanban\Data\bin\Debug\Data.dll.CodeAnalysisLog.xml
+C:\workspace\ProjetoKanban\Data\bin\Debug\Data.dll.lastcodeanalysissucceeded

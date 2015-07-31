@@ -38,6 +38,10 @@
       <End Role="fases" EntitySet="fases" />
       <End Role="grupo_usuarios_x_fases" EntitySet="grupo_usuarios_x_fases" />
     </AssociationSet>
+    <AssociationSet Name="FK_tarefas_fases" Association="KANBANModel.FK_tarefas_fases">
+      <End Role="fases" EntitySet="fases" />
+      <End Role="tarefas" EntitySet="tarefas" />
+    </AssociationSet>
     <AssociationSet Name="FK__grupo_usu__id_gr__05D8E0BE" Association="KANBANModel.FK__grupo_usu__id_gr__05D8E0BE">
       <End Role="grupo_usuarios" EntitySet="grupo_usuarios" />
       <End Role="grupo_usuario_x_permissao" EntitySet="grupo_usuario_x_permissao" />
@@ -213,7 +217,9 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="descricao" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
     <Property Name="ativo" Type="Boolean" Nullable="false" />
+    <Property Name="projetoId" Type="Int32" />
     <NavigationProperty Name="grupo_usuarios_x_fases" Relationship="KANBANModel.FK__grupo_usu__id_fa__10566F31" FromRole="fases" ToRole="grupo_usuarios_x_fases" />
+    <NavigationProperty Name="tarefas" Relationship="KANBANModel.FK_tarefas_fases" FromRole="fases" ToRole="tarefas" />
   </EntityType>
   <EntityType Name="grupo_usuario_x_permissao">
     <Key>
@@ -367,8 +373,10 @@
     <Property Name="id_tarefa_dependencia" Type="Int32" />
     <Property Name="dt_criacao" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="id_tarefa_agrupador" Type="Int32" />
+    <Property Name="idFase" Type="Int32" />
     <NavigationProperty Name="classificacao" Relationship="KANBANModel.FK__tarefas__id_clas__00200768" FromRole="tarefas" ToRole="classificacao" />
     <NavigationProperty Name="classificacao1" Relationship="KANBANModel.FK__tarefas__id_clas__656C112C" FromRole="tarefas" ToRole="classificacao" />
+    <NavigationProperty Name="fases" Relationship="KANBANModel.FK_tarefas_fases" FromRole="tarefas" ToRole="fases" />
     <NavigationProperty Name="grupo_usuarios_x_fases" Relationship="KANBANModel.FK__tarefas__id_grup__628FA481" FromRole="tarefas" ToRole="grupo_usuarios_x_fases" />
     <NavigationProperty Name="grupo_usuarios_x_fases1" Relationship="KANBANModel.FK__tarefas__id_grup__7D439ABD" FromRole="tarefas" ToRole="grupo_usuarios_x_fases" />
     <NavigationProperty Name="projeto" Relationship="KANBANModel.FK__tarefas__id_proj__60A75C0F" FromRole="tarefas" ToRole="projeto" />
@@ -490,6 +498,18 @@
       </Principal>
       <Dependent Role="grupo_usuarios_x_fases">
         <PropertyRef Name="id_fases" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tarefas_fases">
+    <End Type="KANBANModel.fases" Role="fases" Multiplicity="0..1" />
+    <End Type="KANBANModel.tarefas" Role="tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fases">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarefas">
+        <PropertyRef Name="idFase" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

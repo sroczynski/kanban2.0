@@ -2,181 +2,183 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="KANBANModelStoreContainer" CdmEntityContainer="KANBANEntities">
     <EntitySetMapping Name="avatar">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.avatar)">
+      <EntityTypeMapping TypeName="KANBANModel.avatar">
         <MappingFragment StoreEntitySet="avatar">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="path_avatar" ColumnName="path_avatar" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="classificacao">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.classificacao)">
+      <EntityTypeMapping TypeName="KANBANModel.classificacao">
         <MappingFragment StoreEntitySet="classificacao">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="descricao" ColumnName="descricao" />
           <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="fases">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.fases)">
+      <EntityTypeMapping TypeName="KANBANModel.fases">
         <MappingFragment StoreEntitySet="fases">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="projetoId" ColumnName="projetoId" />
           <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="grupo_usuario_x_permissao">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.grupo_usuario_x_permissao)">
+      <EntityTypeMapping TypeName="KANBANModel.grupo_usuario_x_permissao">
         <MappingFragment StoreEntitySet="grupo_usuario_x_permissao">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_permissao" ColumnName="id_permissao" />
           <ScalarProperty Name="id_grupo_usuario" ColumnName="id_grupo_usuario" />
+          <ScalarProperty Name="id_permissao" ColumnName="id_permissao" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="grupo_usuarios">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.grupo_usuarios)">
+      <EntityTypeMapping TypeName="KANBANModel.grupo_usuarios">
         <MappingFragment StoreEntitySet="grupo_usuarios">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="descricao" ColumnName="descricao" />
-          <ScalarProperty Name="cor_grupo" ColumnName="cor_grupo" />
-          <ScalarProperty Name="id_usuario_lider" ColumnName="id_usuario_lider" />
           <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="id_usuario_lider" ColumnName="id_usuario_lider" />
+          <ScalarProperty Name="cor_grupo" ColumnName="cor_grupo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="grupo_usuarios_x_fases">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.grupo_usuarios_x_fases)">
+      <EntityTypeMapping TypeName="KANBANModel.grupo_usuarios_x_fases">
         <MappingFragment StoreEntitySet="grupo_usuarios_x_fases">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_grupo_usuarios" ColumnName="id_grupo_usuarios" />
           <ScalarProperty Name="id_fases" ColumnName="id_fases" />
+          <ScalarProperty Name="id_grupo_usuarios" ColumnName="id_grupo_usuarios" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="permissao">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.permissao)">
+      <EntityTypeMapping TypeName="KANBANModel.permissao">
         <MappingFragment StoreEntitySet="permissao">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="projeto">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.projeto)">
+      <EntityTypeMapping TypeName="KANBANModel.projeto">
         <MappingFragment StoreEntitySet="projeto">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="descricao" ColumnName="descricao" />
           <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="projeto_x_usuario">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.projeto_x_usuario)">
+      <EntityTypeMapping TypeName="KANBANModel.projeto_x_usuario">
         <MappingFragment StoreEntitySet="projeto_x_usuario">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_projeto" ColumnName="id_projeto" />
           <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_projeto" ColumnName="id_projeto" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sprints">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.sprints)">
+      <EntityTypeMapping TypeName="KANBANModel.sprints">
         <MappingFragment StoreEntitySet="sprints">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_sprints_dependencia" ColumnName="id_sprints_dependencia" />
-          <ScalarProperty Name="descricao" ColumnName="descricao" />
-          <ScalarProperty Name="dt_inicio" ColumnName="dt_inicio" />
-          <ScalarProperty Name="dt_fim" ColumnName="dt_fim" />
-          <ScalarProperty Name="ativo" ColumnName="ativo" />
           <ScalarProperty Name="dt_finalizacao" ColumnName="dt_finalizacao" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="dt_fim" ColumnName="dt_fim" />
+          <ScalarProperty Name="dt_inicio" ColumnName="dt_inicio" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id_sprints_dependencia" ColumnName="id_sprints_dependencia" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="status">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.status)">
+      <EntityTypeMapping TypeName="KANBANModel.status">
         <MappingFragment StoreEntitySet="status">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tarefa_x_comentario">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.tarefa_x_comentario)">
+      <EntityTypeMapping TypeName="KANBANModel.tarefa_x_comentario">
         <MappingFragment StoreEntitySet="tarefa_x_comentario">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_tarefas" ColumnName="id_tarefas" />
-          <ScalarProperty Name="dt_comentário" ColumnName="dt_comentário" />
-          <ScalarProperty Name="descricao" ColumnName="descricao" />
           <ScalarProperty Name="anexo" ColumnName="anexo" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="dt_comentário" ColumnName="dt_comentário" />
+          <ScalarProperty Name="id_tarefas" ColumnName="id_tarefas" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tarefa_x_usuario">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.tarefa_x_usuario)">
+      <EntityTypeMapping TypeName="KANBANModel.tarefa_x_usuario">
         <MappingFragment StoreEntitySet="tarefa_x_usuario">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
-          <ScalarProperty Name="id_tarefas" ColumnName="id_tarefas" />
-          <ScalarProperty Name="ativo" ColumnName="ativo" />
-          <ScalarProperty Name="id_usuario_proximo" ColumnName="id_usuario_proximo" />
-          <ScalarProperty Name="dt_criacao" ColumnName="dt_criacao" />
-          <ScalarProperty Name="id_grupo_usuarios_proximo" ColumnName="id_grupo_usuarios_proximo" />
-          <ScalarProperty Name="indice" ColumnName="indice" />
-          <ScalarProperty Name="dt_inicio_tarefa" ColumnName="dt_inicio_tarefa" />
           <ScalarProperty Name="dt_fim_tarefa" ColumnName="dt_fim_tarefa" />
+          <ScalarProperty Name="dt_inicio_tarefa" ColumnName="dt_inicio_tarefa" />
+          <ScalarProperty Name="indice" ColumnName="indice" />
+          <ScalarProperty Name="id_grupo_usuarios_proximo" ColumnName="id_grupo_usuarios_proximo" />
+          <ScalarProperty Name="dt_criacao" ColumnName="dt_criacao" />
+          <ScalarProperty Name="id_usuario_proximo" ColumnName="id_usuario_proximo" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="id_tarefas" ColumnName="id_tarefas" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tarefas">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.tarefas)">
+      <EntityTypeMapping TypeName="KANBANModel.tarefas">
         <MappingFragment StoreEntitySet="tarefas">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_sprints" ColumnName="id_sprints" />
-          <ScalarProperty Name="id_projeto" ColumnName="id_projeto" />
-          <ScalarProperty Name="descricao" ColumnName="descricao" />
-          <ScalarProperty Name="id_status" ColumnName="id_status" />
-          <ScalarProperty Name="id_grupo_usuarios_x_fases" ColumnName="id_grupo_usuarios_x_fases" />
-          <ScalarProperty Name="indice" ColumnName="indice" />
-          <ScalarProperty Name="id_usuario_creator" ColumnName="id_usuario_creator" />
-          <ScalarProperty Name="tempo_estimado" ColumnName="tempo_estimado" />
-          <ScalarProperty Name="tempo_trabalhado" ColumnName="tempo_trabalhado" />
-          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
-          <ScalarProperty Name="id_classificacao" ColumnName="id_classificacao" />
-          <ScalarProperty Name="tarefa_planejada" ColumnName="tarefa_planejada" />
-          <ScalarProperty Name="id_tarefa_dependencia" ColumnName="id_tarefa_dependencia" />
-          <ScalarProperty Name="dt_criacao" ColumnName="dt_criacao" />
+          <ScalarProperty Name="idFase" ColumnName="idFase" />
           <ScalarProperty Name="id_tarefa_agrupador" ColumnName="id_tarefa_agrupador" />
+          <ScalarProperty Name="dt_criacao" ColumnName="dt_criacao" />
+          <ScalarProperty Name="id_tarefa_dependencia" ColumnName="id_tarefa_dependencia" />
+          <ScalarProperty Name="tarefa_planejada" ColumnName="tarefa_planejada" />
+          <ScalarProperty Name="id_classificacao" ColumnName="id_classificacao" />
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+          <ScalarProperty Name="tempo_trabalhado" ColumnName="tempo_trabalhado" />
+          <ScalarProperty Name="tempo_estimado" ColumnName="tempo_estimado" />
+          <ScalarProperty Name="id_usuario_creator" ColumnName="id_usuario_creator" />
+          <ScalarProperty Name="indice" ColumnName="indice" />
+          <ScalarProperty Name="id_grupo_usuarios_x_fases" ColumnName="id_grupo_usuarios_x_fases" />
+          <ScalarProperty Name="id_status" ColumnName="id_status" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id_projeto" ColumnName="id_projeto" />
+          <ScalarProperty Name="id_sprints" ColumnName="id_sprints" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tipo">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.tipo)">
+      <EntityTypeMapping TypeName="KANBANModel.tipo">
         <MappingFragment StoreEntitySet="tipo">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="usuario">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.usuario)">
+      <EntityTypeMapping TypeName="KANBANModel.usuario">
         <MappingFragment StoreEntitySet="usuario">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_avatar" ColumnName="id_avatar" />
-          <ScalarProperty Name="nome_usuario" ColumnName="nome_usuario" />
-          <ScalarProperty Name="login" ColumnName="login" />
           <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="nome_usuario" ColumnName="nome_usuario" />
+          <ScalarProperty Name="id_avatar" ColumnName="id_avatar" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="usuario_x_grupos_usuario">
-      <EntityTypeMapping TypeName="IsTypeOf(KANBANModel.usuario_x_grupos_usuario)">
+      <EntityTypeMapping TypeName="KANBANModel.usuario_x_grupos_usuario">
         <MappingFragment StoreEntitySet="usuario_x_grupos_usuario">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_grupos_usuario" ColumnName="id_grupos_usuario" />
           <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_grupos_usuario" ColumnName="id_grupos_usuario" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

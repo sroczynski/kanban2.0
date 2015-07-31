@@ -170,6 +170,17 @@ namespace Kanban.Models
             return response;
         }
 
-
+        public static void MudarFase(int tarefaId, int faseId)
+        {
+            using (KANBANEntities db = new KANBANEntities())
+            {
+                var tarefa = db.tarefas.FirstOrDefault();
+                if (faseId != tarefa.idFase)
+                {
+                    tarefa.idFase = faseId; 
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }
