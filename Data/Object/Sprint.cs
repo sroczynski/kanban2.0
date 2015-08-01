@@ -18,12 +18,13 @@ namespace Data.Object
 
         public Sprint idSprintDependencia;
 
-        [DataType(DataType.Time)]
-        public TimeSpan dtInicio { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime dtInicio { get; set; }
 
-        [DataType(DataType.Time)]
-        public TimeSpan dtFim { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime dtFim { get; set; }
 
+        public int projetoId { get; set; }
 
         public List<Tarefa> tarefa { get; set; }
     }
@@ -35,8 +36,5 @@ namespace Data.Object
 
     public class SprintRequest : Sprint { }
 
-    public class SprintIndex
-    {
-        public List<Sprint> Sprint { get; set; }
-    }
+    public class SprintIndex : Sprint { }
 }

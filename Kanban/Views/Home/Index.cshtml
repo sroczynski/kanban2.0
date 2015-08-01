@@ -36,7 +36,7 @@
                 var faseId = $(event.interaction.dropElement).attr('data-fase');
 
                 $.post('@Url.Action("DropTarefa", "Tarefa")',
-                    {tarefaId: tarefaId, faseId:faseId}  
+                    { tarefaId: tarefaId, faseId: faseId }
                 );
 
             },
@@ -236,6 +236,7 @@
             width: 32%;
             float: left;
             background-color: #F8F8F8;
+            min-height: 580px;
         }
 
         .drag-drop {
@@ -341,39 +342,45 @@
 }
 @{
     <div class="container-fluid painel">
-
-        @foreach (var fase in Model.Fases)
-        {
-            <div id="inner-dropzone" data-fase="@fase.idFase" class="dropzone">
-                <div class="well-sm" style="text-align:center">
-                    @fase.descricao.ToUpper()
-                </div>
-                @foreach (var tarefa in Model.Tarefas.Where(x => x.idFase == fase.idFase))
-                {
-                    <div class="draggable drag-drop post-it">
-                        <a href="#tarefas" class="tarefaEditar" data-toggle="modal">
-                            @Html.Hidden("tarefaId", tarefa.id)
-                            <div class="open-modal">
-                                <div class="lr">
-                                    <div class="rl">
+        <div id="innerPainel">
+            
+            @if (Model.Fases == null || Model.Fases.Count() == 0)
+            {
+                <div class="alert alert-info">Nenhuma Fase Cadastrada para o Projeto e Sprint selecionados.</div>
+            }   
+            @foreach (var fase in Model.Fases)
+            {
+                <div id="inner-dropzone" data-fase="@fase.idFase" class="dropzone">
+                    <div class="well" style="text-align:center">
+                        @fase.descricao.ToUpper()
+                    </div>    
+                    @foreach (var tarefa in Model.Tarefas.Where(x => x.idFase == fase.idFase))
+                    {
+                        <div class="draggable drag-drop post-it">
+                            <a href="#tarefas" class="tarefaEditar" data-toggle="modal">
+                                @Html.Hidden("tarefaId", tarefa.id)
+                                <div class="open-modal">
+                                    <div class="lr">
+                                        <div class="rl">
+                                        </div>
                                     </div>
                                 </div>
+                            </a>
+                            <div class="text">
+                                <h3 class="textPost-it">@tarefa.titulo</h3>
+                                <hr />
+                                <p class="textPost-it">@tarefa.descricao</p>
                             </div>
-                        </a>
-                        <div class="text">
-                            <h3 class="textPost-it">@tarefa.titulo</h3>
-                            <hr />
-                            <p class="textPost-it">@tarefa.descricao</p>
+                            <div class="botons">
+                                <input type="time" class="timer">
+                                <input type="button" class="play">
+                                <input type="button" class="pause">
+                                <input type="button" class="stop">
+                            </div>
                         </div>
-                        <div class="botons">
-                            <input type="time" class="timer">
-                            <input type="button" class="play">
-                            <input type="button" class="pause">
-                            <input type="button" class="stop">
-                        </div>
-                    </div>
-                }
-            </div>
-        }
+                    }
+                </div>
+            }
+        </div>
     </div>
 }

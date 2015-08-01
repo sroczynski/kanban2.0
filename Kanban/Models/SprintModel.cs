@@ -9,12 +9,12 @@ namespace Kanban.Models
 {
     public class SprintModel
     {
-        public static SprintIndex Index()
+        public static List<SprintIndex> Index()
         {
-            SprintIndex index = new SprintIndex() { Sprint = new List<Sprint>() };
+            List<SprintIndex> index = new List<SprintIndex>();
             using (var db = new KANBANEntities())
             {
-                index.Sprint = db.sprints.Select(x => new Sprint()
+                index = db.sprints.Select(x => new SprintIndex()
                 {
                     idSprint = x.id,
                     descricao = x.descricao

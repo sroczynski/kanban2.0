@@ -38,9 +38,15 @@
             @if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 <div class="dropdown">
-                    <div class="col-sm-4">
-                        @Html.DropDownList("Projetos", Kanban.Models.ProjetoModel.GetProjetoListItem(), new { @class = "form-control" })
-                    </div>
+                    @if (Request.Url.AbsoluteUri == "http://localhost:49829/")
+                    {
+                        <div class="col-sm-4">
+                            Projeto: @Html.DropDownList("Projetos", Kanban.Models.ProjetoModel.GetProjetoListItem(), new { @class = "form-control" })
+                        </div>
+                        <div class="col-sm-4">
+                            sprint: @Html.DropDownList("Sprints", Kanban.Models.SprintModel.GetSprints(), new { @class = "form-control"})
+                        </div>
+                    }
 
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-bars"></i>

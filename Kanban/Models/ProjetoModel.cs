@@ -44,14 +44,15 @@ namespace Kanban.Models
         public static ProjetoView Buscar(int projetoId)
         {
             ProjetoView response = new ProjetoView();
-            
+
             using (KANBANEntities db = new KANBANEntities())
             {
-                response = db.projeto.Select(x => new ProjetoView() { 
-                    id = x.id, 
-                    titulo = x.titulo, 
-                    descricao = x.descricao, 
-                    newRegister = false 
+                response = db.projeto.Select(x => new ProjetoView()
+                {
+                    id = x.id,
+                    titulo = x.titulo,
+                    descricao = x.descricao,
+                    newRegister = false
                 }).FirstOrDefault(x => x.id == projetoId);
             }
 
@@ -108,11 +109,13 @@ namespace Kanban.Models
 
         public static List<SelectListItem> GetProjetoListItem(int? selectedId = null)
         {
+            int usuarioId = UsuarioModel.GetUsuarioLogado().idUsuario;
             List<SelectListItem> response = new List<SelectListItem>();
             using (var db = new KANBANEntities())
             {
-                var projetos = db.projeto.ToList();
-                foreach (var item in projetos)
+                var projetosUsuario = db.projeto_x_usuario.Where(x=> x.id_usuario==usuarioId).Select(x =>x.projeto).ToList();
+
+                foreach (var item in projetosUsuario)
                 {
                     response.Add(new SelectListItem(){
                         Text = item.titulo,

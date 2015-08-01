@@ -84,6 +84,7 @@
     <Property Name="dt_fim" Type="datetime" />
     <Property Name="ativo" Type="bit" />
     <Property Name="dt_finalizacao" Type="date" />
+    <Property Name="idProjeto" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="status">
     <Key>
@@ -669,6 +670,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_sprints_projeto">
+    <End Role="projeto" Type="Self.projeto" Multiplicity="1" />
+    <End Role="sprints" Type="Self.sprints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="sprints">
+        <PropertyRef Name="idProjeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tarefas_fases">
     <End Role="fases" Type="Self.fases" Multiplicity="0..1" />
     <End Role="tarefas" Type="Self.tarefas" Multiplicity="*" />
@@ -866,6 +879,10 @@
     <AssociationSet Name="FK__usuario_x__id_us__0E6E26BF" Association="Self.FK__usuario_x__id_us__0E6E26BF">
       <End Role="usuario" EntitySet="usuario" />
       <End Role="usuario_x_grupos_usuario" EntitySet="usuario_x_grupos_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sprints_projeto" Association="Self.FK_sprints_projeto">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="sprints" EntitySet="sprints" />
     </AssociationSet>
     <AssociationSet Name="FK_tarefas_fases" Association="Self.FK_tarefas_fases">
       <End Role="fases" EntitySet="fases" />

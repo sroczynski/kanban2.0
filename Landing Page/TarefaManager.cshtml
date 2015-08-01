@@ -1,0 +1,99 @@
+﻿<div class="col-lg-4">
+    @model Data.Object.TarefaView
+    @{
+        ViewBag.Title = "Manutenção de Tarefa";
+    }
+
+    <h2>@ViewBag.Title</h2>
+
+    @using (Ajax.BeginForm(Model.newRegister ? "Criar" : "Editar", new AjaxOptions() { OnSuccess = "onSuccess", HttpMethod = "POST" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+
+            <h3>Tarefa</h3>
+            @Html.ValidationSummary()
+
+            @Html.HiddenFor(model => model.TarefaId)
+            @Html.HiddenFor(model => model.Projeto)
+
+            <div class="form-group">
+                <label>Descrição:</label>
+                <div>
+                    @Html.TextArea("descricao", Model.Descricao, new { disabled = "disabled", @type = "text", @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Indice:</label>
+                <div>
+                    @Html.TextBox("indice", Model.indice, new { disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Tempo Estimado:</label>
+                <div>
+                    @Html.TextBox("tempoEstimado", Model.TempoEstimado, new { disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Projeto:</label>
+                <div>
+                    @Html.DropDownList("idProjeto", Model.Projeto, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Sprint:</label>
+                <div>
+                    @Html.DropDownList("idSprint", Model.Sprint, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Classificação:</label>
+                <div>
+                    @Html.DropDownList("idClassificacao", Model.Classificacao, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Tarefas Pai:</label>
+                <div>
+                    @Html.DropDownList("idTarefaDependencia", Model.Tarefas, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Tipo:</label>
+                <div>
+                    @Html.DropDownList("idTipo", Model.Tipo, new { @class = "form-control" })
+                </div>
+            </div>
+
+            @if (!Model.newRegister)
+            {
+                <div class="form-group">
+                    <label>Data Criação</label>
+                    <div>
+                        @Html.TextBox("dt_Criacao", Model.DataCriacao, new { type = "date", disabled = "disabled", @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Usuário criador</label>
+                    <div>
+                        @Html.TextBox("UsuarioCriador", Model.UsuarioCriador, new { disabled = "disabled", @class = "form-control" })
+                    </div>
+                </div>
+            }
+
+            <input type="submit" value="Salvar" class="btn btn-primary" />
+            @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+
+        </fieldset>
+
+    }
+</div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

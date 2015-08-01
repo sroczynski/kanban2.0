@@ -1,33 +1,32 @@
-﻿@model List<Data.Object.Sprint>
+﻿@model List<Data.Object.SprintIndex>
 
 @{
     ViewBag.Title = "Index";
-
-    <script>
-        
-    </script>    
 }
 
 @{
-<h2>Sprint</h2>
+    <div class="container">
 
-    @Html.ActionLink("Novo", "Criar", null, htmlAttributes: new { @class="btn btn-primary"});
-    @Html.ActionLink("Voltar", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-default" });
-    <br />
-    <table class="table table-striped table-responsive">
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.idSprint</td>
-                <td>@item.descricao</td>
-                <td>@item.dtInicio</td>
-                <td>@item.dtFim</td>
-                <td>
-                    @Html.ActionLink("Editar", "Editar", new { sprintId = item.idSprint }, htmlAttributes: new { @class = "btn btn-primary"})
-                    @Html.ActionLink("Excluir", "Excluir", new { sprintId = item.idSprint }, htmlAttributes: new { @class = "btn btn-danger" })
-                </td>
-            </tr>
-        }
-    </table>
+        <h2>Sprint</h2>
+
+        @Html.ActionLink("Novo", "Criar", null, htmlAttributes: new { @class = "btn btn-primary" });
+        @Html.ActionLink("Voltar", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-default" });
+        <br />
+        <table class="table table-striped table-responsive">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.idSprint</td>
+                    <td>@item.descricao</td>
+                    <td>@item.dtInicio</td>
+                    <td>@item.dtFim</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Editar", new { sprintId = item.idSprint }, htmlAttributes: new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Excluir", "Excluir", new { sprintId = item.idSprint }, htmlAttributes: new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
 }
 

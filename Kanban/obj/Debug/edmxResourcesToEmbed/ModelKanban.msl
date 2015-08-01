@@ -86,6 +86,7 @@
     <EntitySetMapping Name="sprints">
       <EntityTypeMapping TypeName="KANBANModel.sprints">
         <MappingFragment StoreEntitySet="sprints">
+          <ScalarProperty Name="idProjeto" ColumnName="idProjeto" />
           <ScalarProperty Name="dt_finalizacao" ColumnName="dt_finalizacao" />
           <ScalarProperty Name="ativo" ColumnName="ativo" />
           <ScalarProperty Name="dt_fim" ColumnName="dt_fim" />

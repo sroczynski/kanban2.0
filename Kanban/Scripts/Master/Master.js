@@ -5,13 +5,47 @@ $(document).ready(function () {
 
 });
 
-function trocaProjetoEvent()
-{
-    
+function trocaProjetoEvent() {
+    var projetoIdAtual = $('#Projetos').val();
+    $.post('/Sprint/GetSprints', { projetoId: projetoIdAtual },
+        function (response) {
+            $("#Sprints").empty();
+            for (var i = 0; i < response.length; i++) { // Percorre a lista de cidades retornadas
+                $('#Sprints').append('<option value="' + response[i].Value + '">' + response[i].Text + '</option>');
+            };
+        }
+    );
+
+    $('#Projetos').change(function () {
+        var projetoId = $(this).val();
+        $.post('/Home/Index', { projetoId: projetoId }, function (html) {
+            var painel = $('.painel');
+            painel.html($(html).find('.painel').find('#innerPainel'));
+
+            $.post('/Sprint/GetSprints', { projetoId: projetoIdAtual },
+                function (response) {
+                    $("#Sprints").empty();
+                    for (var i = 0; i < response.length; i++) { // Percorre a lista de cidades retornadas
+                        $('#Sprints').append('<option value="' + response[i].Value + '">' + response[i].Text + '</option>');
+                    };
+                }
+            );
+        });
+    });
+
+    $('#Sprints').change(function () {
+        var sprintId = $(this).val();
+        var projetoId = $('#Projetos').val();
+
+        $.post('/Home/Index', { projetoId: projetoId }, function (html) {
+            var painel = $('.painel');
+            painel.html($(html).find('.painel').find('#innerPainel'));
+        });
+
+    });
 }
 
-function TarefaEdicaoEvent()
-{
+function TarefaEdicaoEvent() {
     var postit = jQuery('.post-it');
     jQuery.each(postit, function () {
         var tarefaId = $(this).find('#tarefaId').val();
@@ -31,7 +65,8 @@ function TarefaEdicaoEvent()
 
 function onSuccess(data) {
     if (data.success) {
-        alert(data.Message);
+        var modal = $('#ModalAlert').clone();
+        modal.find('.modal-body').html(data.Message);
     }
 }
 

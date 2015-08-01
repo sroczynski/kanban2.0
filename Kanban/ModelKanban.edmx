@@ -89,6 +89,7 @@
           <Property Name="dt_fim" Type="datetime" />
           <Property Name="ativo" Type="bit" />
           <Property Name="dt_finalizacao" Type="date" />
+          <Property Name="idProjeto" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="status">
           <Key>
@@ -674,6 +675,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_sprints_projeto">
+          <End Role="projeto" Type="Self.projeto" Multiplicity="1" />
+          <End Role="sprints" Type="Self.sprints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projeto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sprints">
+              <PropertyRef Name="idProjeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tarefas_fases">
           <End Role="fases" Type="Self.fases" Multiplicity="0..1" />
           <End Role="tarefas" Type="Self.tarefas" Multiplicity="*" />
@@ -872,6 +885,10 @@
             <End Role="usuario" EntitySet="usuario" />
             <End Role="usuario_x_grupos_usuario" EntitySet="usuario_x_grupos_usuario" />
           </AssociationSet>
+          <AssociationSet Name="FK_sprints_projeto" Association="Self.FK_sprints_projeto">
+            <End Role="projeto" EntitySet="projeto" />
+            <End Role="sprints" EntitySet="sprints" />
+          </AssociationSet>
           <AssociationSet Name="FK_tarefas_fases" Association="Self.FK_tarefas_fases">
             <End Role="fases" EntitySet="fases" />
             <End Role="tarefas" EntitySet="tarefas" />
@@ -982,6 +999,10 @@
           <AssociationSet Name="FK__tarefas__id_proj__7B5B524B" Association="KANBANModel.FK__tarefas__id_proj__7B5B524B">
             <End Role="projeto" EntitySet="projeto" />
             <End Role="tarefas" EntitySet="tarefas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sprints_projeto" Association="KANBANModel.FK_sprints_projeto">
+            <End Role="projeto" EntitySet="projeto" />
+            <End Role="sprints" EntitySet="sprints" />
           </AssociationSet>
           <AssociationSet Name="FK__projeto_x__id_us__07C12930" Association="KANBANModel.FK__projeto_x__id_us__07C12930">
             <End Role="usuario" EntitySet="usuario" />
@@ -1163,6 +1184,7 @@
           <NavigationProperty Name="projeto_x_usuario1" Relationship="KANBANModel.FK__projeto_x__id_pr__6C190EBB" FromRole="projeto" ToRole="projeto_x_usuario" />
           <NavigationProperty Name="tarefas" Relationship="KANBANModel.FK__tarefas__id_proj__60A75C0F" FromRole="projeto" ToRole="tarefas" />
           <NavigationProperty Name="tarefas1" Relationship="KANBANModel.FK__tarefas__id_proj__7B5B524B" FromRole="projeto" ToRole="tarefas" />
+          <NavigationProperty Name="sprints" Relationship="KANBANModel.FK_sprints_projeto" FromRole="projeto" ToRole="sprints" />
         </EntityType>
         <EntityType Name="projeto_x_usuario">
           <Key>
@@ -1187,6 +1209,8 @@
           <Property Name="dt_fim" Type="DateTime" Precision="3" />
           <Property Name="ativo" Type="Boolean" />
           <Property Name="dt_finalizacao" Type="DateTime" Precision="0" />
+          <Property Name="idProjeto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="projeto" Relationship="KANBANModel.FK_sprints_projeto" FromRole="sprints" ToRole="projeto" />
           <NavigationProperty Name="sprints1" Relationship="KANBANModel.FK__sprints__id_spri__5EBF139D" FromRole="sprints" ToRole="sprints1" />
           <NavigationProperty Name="sprints2" Relationship="KANBANModel.FK__sprints__id_spri__5EBF139D" FromRole="sprints1" ToRole="sprints" />
           <NavigationProperty Name="sprints11" Relationship="KANBANModel.FK__sprints__id_spri__797309D9" FromRole="sprints" ToRole="sprints1" />
@@ -1575,6 +1599,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_sprints_projeto">
+          <End Type="KANBANModel.projeto" Role="projeto" Multiplicity="1" />
+          <End Type="KANBANModel.sprints" Role="sprints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projeto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sprints">
+              <PropertyRef Name="idProjeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__projeto_x__id_us__07C12930">
           <End Type="KANBANModel.usuario" Role="usuario" Multiplicity="1" />
           <End Type="KANBANModel.projeto_x_usuario" Role="projeto_x_usuario" Multiplicity="*" />
@@ -1930,6 +1966,7 @@
           <EntitySetMapping Name="sprints">
             <EntityTypeMapping TypeName="KANBANModel.sprints">
               <MappingFragment StoreEntitySet="sprints">
+                <ScalarProperty Name="idProjeto" ColumnName="idProjeto" />
                 <ScalarProperty Name="dt_finalizacao" ColumnName="dt_finalizacao" />
                 <ScalarProperty Name="ativo" ColumnName="ativo" />
                 <ScalarProperty Name="dt_fim" ColumnName="dt_fim" />

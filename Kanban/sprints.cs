@@ -29,7 +29,9 @@ namespace Kanban
         public Nullable<System.DateTime> dt_fim { get; set; }
         public Nullable<bool> ativo { get; set; }
         public Nullable<System.DateTime> dt_finalizacao { get; set; }
+        public int idProjeto { get; set; }
     
+        public virtual projeto projeto { get; set; }
         public virtual ICollection<sprints> sprints1 { get; set; }
         public virtual sprints sprints2 { get; set; }
         public virtual ICollection<sprints> sprints11 { get; set; }

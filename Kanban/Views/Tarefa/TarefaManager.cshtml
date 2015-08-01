@@ -1,17 +1,17 @@
-﻿@model Data.Object.TarefaView
-@{
-    ViewBag.Title = "Manutenção de Tarefa";
-}
+﻿    @model Data.Object.TarefaView
+    @{
+        ViewBag.Title = "Manutenção de Tarefa";
+    }
 
-<h2>@ViewBag.Title</h2>
+<div class="col-lg-4">
+    @using (Ajax.BeginForm(Model.newRegister ? "Criar" : "Editar", new AjaxOptions() { OnSuccess = "onSuccess", HttpMethod = "POST" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-@using (Ajax.BeginForm(Model.newRegister ? "Criar" : "Editar", new AjaxOptions() { OnSuccess = "onSuccess", HttpMethod = "POST" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+        <fieldset>
 
-    <fieldset>
-        <legend>Tarefa</legend>
+            <h3>Tarefa</h3>
             @Html.ValidationSummary()
 
             @Html.HiddenFor(model => model.TarefaId)
@@ -19,51 +19,51 @@
 
             <div class="form-group">
                 <label>Descrição:</label>
-                <div class="input-group">
-                    @Html.TextArea("descricao", Model.Descricao)
+                <div>
+                    @Html.TextArea("descricao", Model.Descricao, new { disabled = "disabled", @type = "text", @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <label>Indice:</label>
-                <div class="input-group">
-                    @Html.TextBox("indice", Model.indice)
+                <div>
+                    @Html.TextBox("indice", Model.indice, new { disabled = "disabled", @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <label>Tempo Estimado:</label>
-                <div class="input-group">
-                    @Html.TextBox("tempoEstimado", Model.TempoEstimado, new { disabled="disabled" })
+                <div>
+                    @Html.TextBox("tempoEstimado", Model.TempoEstimado, new { disabled = "disabled", @class = "form-control" })
                 </div>
             </div>
 
             <div class="form-group">
                 <label>Projeto:</label>
-                <div class="input-group">
-                    @Html.DropDownList("idProjeto", Model.Projeto)
+                <div>
+                    @Html.DropDownList("idProjeto", Model.Projeto, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <label>Sprint:</label>
-                <div class="input-group">
-                    @Html.DropDownList("idSprint", Model.Sprint)
+                <div>
+                    @Html.DropDownList("idSprint", Model.Sprint, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <label>Classificação:</label>
-                <div class="input-group">
-                    @Html.DropDownList("idClassificacao", Model.Classificacao)
+                <div>
+                    @Html.DropDownList("idClassificacao", Model.Classificacao, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <label>Tarefas Pai:</label>
-                <div class="input-group">
-                    @*@Html.DropDownList("idTarefaDependencia", Model.Tarefas)*@
+                <div>
+                    @Html.DropDownList("idTarefaDependencia", Model.Tarefas, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <label>Tipo:</label>
-                <div class="input-group">
-                    @Html.DropDownList("idTipo", Model.Tipo)
+                <div>
+                    @Html.DropDownList("idTipo", Model.Tipo, new { @class = "form-control" })
                 </div>
             </div>
 
@@ -71,15 +71,15 @@
             {
                 <div class="form-group">
                     <label>Data Criação</label>
-                    <div class="input-group">
-                        @Html.TextBox("dt_Criacao", Model.DataCriacao, new { type = "date", disabled = "disabled"})
+                    <div>
+                        @Html.TextBox("dt_Criacao", Model.DataCriacao, new { type = "date", disabled = "disabled", @class = "form-control" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>Usuário criador</label>
-                    <div class="input-group">
-                        @Html.TextBox("UsuarioCriador", Model.UsuarioCriador, new { disabled = "disabled" })
+                    <div>
+                        @Html.TextBox("UsuarioCriador", Model.UsuarioCriador, new { disabled = "disabled", @class = "form-control" })
                     </div>
                 </div>
             }
@@ -88,7 +88,10 @@
             @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
 
         </fieldset>
-        }
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-        }
+
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

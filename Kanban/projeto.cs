@@ -20,6 +20,7 @@ namespace Kanban
             this.projeto_x_usuario1 = new HashSet<projeto_x_usuario>();
             this.tarefas = new HashSet<tarefas>();
             this.tarefas1 = new HashSet<tarefas>();
+            this.sprints = new HashSet<sprints>();
         }
     
         public int id { get; set; }
@@ -30,5 +31,6 @@ namespace Kanban
         public virtual ICollection<projeto_x_usuario> projeto_x_usuario1 { get; set; }
         public virtual ICollection<tarefas> tarefas { get; set; }
         public virtual ICollection<tarefas> tarefas1 { get; set; }
+        public virtual ICollection<sprints> sprints { get; set; }
     }
 }

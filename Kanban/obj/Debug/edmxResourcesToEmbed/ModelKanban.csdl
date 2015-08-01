@@ -102,6 +102,10 @@
       <End Role="projeto" EntitySet="projeto" />
       <End Role="tarefas" EntitySet="tarefas" />
     </AssociationSet>
+    <AssociationSet Name="FK_sprints_projeto" Association="KANBANModel.FK_sprints_projeto">
+      <End Role="projeto" EntitySet="projeto" />
+      <End Role="sprints" EntitySet="sprints" />
+    </AssociationSet>
     <AssociationSet Name="FK__projeto_x__id_us__07C12930" Association="KANBANModel.FK__projeto_x__id_us__07C12930">
       <End Role="usuario" EntitySet="usuario" />
       <End Role="projeto_x_usuario" EntitySet="projeto_x_usuario" />
@@ -282,6 +286,7 @@
     <NavigationProperty Name="projeto_x_usuario1" Relationship="KANBANModel.FK__projeto_x__id_pr__6C190EBB" FromRole="projeto" ToRole="projeto_x_usuario" />
     <NavigationProperty Name="tarefas" Relationship="KANBANModel.FK__tarefas__id_proj__60A75C0F" FromRole="projeto" ToRole="tarefas" />
     <NavigationProperty Name="tarefas1" Relationship="KANBANModel.FK__tarefas__id_proj__7B5B524B" FromRole="projeto" ToRole="tarefas" />
+    <NavigationProperty Name="sprints" Relationship="KANBANModel.FK_sprints_projeto" FromRole="projeto" ToRole="sprints" />
   </EntityType>
   <EntityType Name="projeto_x_usuario">
     <Key>
@@ -306,6 +311,8 @@
     <Property Name="dt_fim" Type="DateTime" Precision="3" />
     <Property Name="ativo" Type="Boolean" />
     <Property Name="dt_finalizacao" Type="DateTime" Precision="0" />
+    <Property Name="idProjeto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="projeto" Relationship="KANBANModel.FK_sprints_projeto" FromRole="sprints" ToRole="projeto" />
     <NavigationProperty Name="sprints1" Relationship="KANBANModel.FK__sprints__id_spri__5EBF139D" FromRole="sprints" ToRole="sprints1" />
     <NavigationProperty Name="sprints2" Relationship="KANBANModel.FK__sprints__id_spri__5EBF139D" FromRole="sprints1" ToRole="sprints" />
     <NavigationProperty Name="sprints11" Relationship="KANBANModel.FK__sprints__id_spri__797309D9" FromRole="sprints" ToRole="sprints1" />
@@ -691,6 +698,18 @@
       </Principal>
       <Dependent Role="tarefas">
         <PropertyRef Name="id_projeto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sprints_projeto">
+    <End Type="KANBANModel.projeto" Role="projeto" Multiplicity="1" />
+    <End Type="KANBANModel.sprints" Role="sprints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projeto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="sprints">
+        <PropertyRef Name="idProjeto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
