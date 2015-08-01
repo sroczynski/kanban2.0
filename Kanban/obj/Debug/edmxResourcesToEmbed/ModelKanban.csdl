@@ -374,6 +374,7 @@
     <Property Name="dt_criacao" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="id_tarefa_agrupador" Type="Int32" />
     <Property Name="idFase" Type="Int32" />
+    <Property Name="Titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="classificacao" Relationship="KANBANModel.FK__tarefas__id_clas__00200768" FromRole="tarefas" ToRole="classificacao" />
     <NavigationProperty Name="classificacao1" Relationship="KANBANModel.FK__tarefas__id_clas__656C112C" FromRole="tarefas" ToRole="classificacao" />
     <NavigationProperty Name="fases" Relationship="KANBANModel.FK_tarefas_fases" FromRole="tarefas" ToRole="fases" />

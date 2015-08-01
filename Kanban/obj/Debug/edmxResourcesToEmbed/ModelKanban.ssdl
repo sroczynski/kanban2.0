@@ -138,6 +138,7 @@
     <Property Name="dt_criacao" Type="datetime" Nullable="false" />
     <Property Name="id_tarefa_agrupador" Type="int" />
     <Property Name="idFase" Type="int" />
+    <Property Name="Titulo" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tipo">
     <Key>

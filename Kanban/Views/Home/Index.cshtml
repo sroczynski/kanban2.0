@@ -1,4 +1,4 @@
-﻿@model Data.Object.ProjetoIndex
+﻿@model Data.Object.Kanban
 @{
     ViewBag.Title = "TaskBoard";
 
@@ -348,12 +348,11 @@
                 <div class="well-sm" style="text-align:center">
                     @fase.descricao.ToUpper()
                 </div>
-                @foreach (var tarefa in Model.Projetos)
+                @foreach (var tarefa in Model.Tarefas.Where(x => x.idFase == fase.idFase))
                 {
                     <div class="draggable drag-drop post-it">
                         <a href="#tarefas" class="tarefaEditar" data-toggle="modal">
                             @Html.Hidden("tarefaId", tarefa.id)
-
                             <div class="open-modal">
                                 <div class="lr">
                                     <div class="rl">

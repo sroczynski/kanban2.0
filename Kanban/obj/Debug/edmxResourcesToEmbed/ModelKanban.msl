@@ -134,6 +134,7 @@
     <EntitySetMapping Name="tarefas">
       <EntityTypeMapping TypeName="KANBANModel.tarefas">
         <MappingFragment StoreEntitySet="tarefas">
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
           <ScalarProperty Name="idFase" ColumnName="idFase" />
           <ScalarProperty Name="id_tarefa_agrupador" ColumnName="id_tarefa_agrupador" />
           <ScalarProperty Name="dt_criacao" ColumnName="dt_criacao" />

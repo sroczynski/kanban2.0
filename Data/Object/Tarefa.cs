@@ -12,9 +12,13 @@ namespace Data.Object
     public class Tarefa
     {
         public int id { get; set; }
-      
+
+        public string Titulo { get; set; }
+
         [Required]
         public int idSprint { get; set; }
+
+        public int idFase { get; set; }
 
         [Required]
         public int idProjeto { get; set; }
@@ -75,6 +79,8 @@ namespace Data.Object
     {
         public int id { get; set; }
         public string titulo { get; set; }
+        public string descricao { get; set; }
+        public int idFase { get; set; }
         public DateTime dtCriacao  { get; set; }
         public string projeto { get; set; }
     }

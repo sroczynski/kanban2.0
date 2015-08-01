@@ -11,9 +11,10 @@ namespace Kanban.Controllers
     public class HomeController : Controller
     {
         [AuthorizeExtension]
-        public ActionResult Index()
+        public ActionResult Index(string projetoId = null)
         {
-            return View(HomeModel.Index());
+            int idProjeto = !string.IsNullOrEmpty(projetoId) ? Convert.ToInt32(projetoId) : 0;
+            return View(HomeModel.Index(idProjeto));
         }
     }
 }

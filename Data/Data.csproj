@@ -51,6 +51,7 @@
     <Compile Include="Object\GrupoUsuarioPermissao.cs" />
     <Compile Include="Object\GrupoUsuarios.cs" />
     <Compile Include="Object\GrupoUsuariosFases.cs" />
+    <Compile Include="Object\Kanban.cs" />
     <Compile Include="Object\Permissao.cs" />
     <Compile Include="Object\Sprint.cs" />
     <Compile Include="Object\Projeto.cs" />

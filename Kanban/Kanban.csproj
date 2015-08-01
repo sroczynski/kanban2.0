@@ -463,7 +463,6 @@
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Shared\ModalFull.cshtml" />
     <Content Include="Views\Shared\ModalAlert.cshtml" />
-    <Content Include="Views\Tarefa\_View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
